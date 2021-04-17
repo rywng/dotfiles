@@ -30,6 +30,15 @@ Plug 'tpope/vim-fugitive'
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
+if has('nvim')
+  Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 call plug#end()
 
 colorscheme nord
