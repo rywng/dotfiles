@@ -52,6 +52,10 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod],
+        "Tab",
+        lazy.layout.next(),
+        desc="Move window focus to other window"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -97,7 +101,6 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -197,12 +200,13 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Sep(padding=12, background=bgc1, linewidth=0),
-                widget.Systray(background=bgc1),
                 widget.Notify(background=bgc1,
                               foreground=fgc1,
                               foreground_low='e5e9f0',
                               foreground_urgent='d08770',
                               padding=6),
+                widget.Sep(padding=24, background=bgc1),
+                widget.Systray(background=bgc1),
                 widget.Sep(padding=24, background=bgc1),
                 widget.TextBox(text='Vol:[', background=bgc1),
                 widget.Volume(background=bgc1),
