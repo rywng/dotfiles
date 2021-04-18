@@ -4,8 +4,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
-Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-fugitive'
+Plug 'chiel92/vim-autoformat'
 
 " Make sure you use single quotes
 " Plug 'junegunn/seoul256.vim'
@@ -31,16 +31,28 @@ Plug 'tpope/vim-fugitive'
 " Plug '~/my-prototype-plugin'
 
 if has('nvim')
-  Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
 colorscheme nord
+
 set relativenumber
 set number
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+noremap <F3> :Autoformat<CR>
