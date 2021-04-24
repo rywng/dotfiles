@@ -36,58 +36,58 @@ terminal = "kitty"
 
 keys = [
 
-    # Sound
-    Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 1- unmute")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 1+ unmute")),
-    Key([], "XF86AudioMicMute", lazy.spawn("amixer set Capture toggle")),
+        # Sound
+        Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
+        Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 1- unmute")),
+        Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 1+ unmute")),
+        Key([], "XF86AudioMicMute", lazy.spawn("amixer set Capture toggle")),
 
-    #screenshots
-    Key([mod], "Print",
-        lazy.spawn(
-            "escrotum ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")),
+        #screenshots
+        Key([mod], "Print",
+            lazy.spawn(
+                "escrotum ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")),
 
-    # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod],
-        "Tab",
-        lazy.layout.next(),
-        desc="Move window focus to other window"),
+            # Switch between windows
+            Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+            Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+            Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+            Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+            Key([mod],
+                "Tab",
+                lazy.layout.next(),
+                desc="Move window focus to other window"),
 
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"],
-        "h",
-        lazy.layout.shuffle_left(),
-        desc="Move window to the left"),
-    Key([mod, "shift"],
-        "l",
-        lazy.layout.shuffle_right(),
-        desc="Move window to the right"),
-    Key([mod, "shift"],
-        "j",
-        lazy.layout.shuffle_down(),
-        desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+            # Move windows between left/right columns or move up/down in current stack.
+            # Moving out of range in Columns layout will create new column.
+            Key([mod, "shift"],
+                "h",
+                lazy.layout.shuffle_left(),
+                desc="Move window to the left"),
+            Key([mod, "shift"],
+                "l",
+                lazy.layout.shuffle_right(),
+                desc="Move window to the right"),
+            Key([mod, "shift"],
+                "j",
+                lazy.layout.shuffle_down(),
+                desc="Move window down"),
+            Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([mod, "control"],
-        "h",
-        lazy.layout.grow_left(),
-        desc="Grow window to the left"),
-    Key([mod, "control"],
-        "l",
-        lazy.layout.grow_right(),
-        desc="Grow window to the right"),
-    Key([mod, "control"],
-        "j",
-        lazy.layout.grow_down(),
-        desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+            # Grow windows. If current window is on the edge of screen and direction
+            # will be to screen edge - window would shrink.
+            Key([mod, "control"],
+                "h",
+                lazy.layout.grow_left(),
+                desc="Grow window to the left"),
+            Key([mod, "control"],
+                "l",
+                lazy.layout.grow_right(),
+                desc="Grow window to the right"),
+            Key([mod, "control"],
+                "j",
+                lazy.layout.grow_down(),
+                desc="Grow window down"),
+            Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Toggle between split and unsplit sides of stack.
@@ -95,9 +95,9 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack"),
+            "Return",
+            lazy.layout.toggle_split(),
+            desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
@@ -105,14 +105,14 @@ keys = [
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod],
-        "r",
-        lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
+            "r",
+            lazy.spawncmd(),
+            desc="Spawn a command using a prompt widget"),
     Key([mod, "shift"],
-        "Return",
-        lazy.spawn("rofi -show drun"),
-        desc="launch rofi"),
-]
+            "Return",
+            lazy.spawn("rofi -show drun"),
+            desc="launch rofi"),
+    ]
 
 groups = [Group(i) for i in "123456789"]
 
@@ -133,41 +133,42 @@ for i in groups:
         # # mod1 + shift + letter of group = move focused window to group
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
         #     desc="move focused window to group {}".format(i.name)),
-    ])
+        ])
 
-layouts = [
-    #layout.Columns(border_focus_stack='#b48ead'),
-    #layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    #layout.Stack(num_stacks=2),
-    #layout.Bsp(),
-    #layout.Matrix(),
-    #layout.MonadTall(),
-    #layout.MonadWide(),
-    #layout.RatioTile(),
-    #layout.Tile(),
-    #layout.TreeTab(),
-    #layout.VerticalTile(),
-    #layout.Zoomy(),
-    layout.Columns(
-        border_focus='#b48ead',
-        border_normal_stack='#8fbcbb',
-        border_normal='#3b4252',
-        margin=0,
-        margin_on_single=0,
-    ),
-]
+    layouts = [
+            #layout.Columns(border_focus_stack='#b48ead'),
+            #layout.Max(),
+            # Try more layouts by unleashing below layouts.
+            #layout.Stack(num_stacks=2),
+            #layout.Bsp(),
+            #layout.Matrix(),
+            #layout.MonadTall(),
+            #layout.MonadWide(),
+            #layout.RatioTile(),
+            #layout.Tile(),
+            #layout.TreeTab(),
+            #layout.VerticalTile(),
+            #layout.Zoomy(),
+            layout.Columns(
+                border_on_single=True,
+                border_focus='#b48ead',
+                border_normal_stack='#8fbcbb',
+                border_normal='#3b4252',
+                margin=8,
+                margin_on_single=64,
+                ),
+            ]
 
-fgc1 = '#d8dee9'
+    fgc1 = '#d8dee9'
 fgc2 = '#eceff4'
 
 widget_defaults = dict(
-    font='monospace',
-    fontsize=16,
-    padding=3,
-    foreground=fgc1,
-    margin_y=2,
-)
+        font='monospace',
+        fontsize=16,
+        padding=3,
+        foreground=fgc1,
+        margin_y=2,
+        )
 extension_defaults = widget_defaults.copy()
 
 # Bar and widgets
@@ -176,74 +177,71 @@ bgc1 = '#2e3440'
 bgc2 = '#3b4252'
 
 screens = [
-    Screen(
-        top=bar.Bar(
-            [
-                widget.Sep(padding=6, linewidth=0, background=bgc1),
-                widget.GroupBox(
-                    background=bgc1,
-                    active=fgc1,
-                    inactive=fgc2,
-                    highlight_method='line',
-                    highlight_color=[bgc2],
-                    borderwidth=2,
-                    #this_current_screen_border='5e81ac',
-                    #this_screen_border='81a1c1',
-                    hide_unused=True,
-                    disable_drag=True),
-                widget.Prompt(background=bgc1),
-                widget.Sep(padding=12, background=bgc1, linewidth=0),
-                widget.Sep(padding=12, background=bgc2, linewidth=0),
-                widget.WindowName(
-                    font='sans', background=bgc2, foreground=fgc2),
-                widget.Chord(
-                    chords_colors={
-                        'launch': (bgc1, fgc1),
-                    },
-                    name_transform=lambda name: name.upper(),
+        Screen(
+            top=bar.Bar(
+                [
+                    widget.Sep(padding=6, linewidth=0, background=bgc1),
+                    widget.GroupBox(
+                        background=bgc1,
+                        active=fgc1,
+                        inactive=fgc2,
+                        highlight_method='line',
+                        highlight_color=[bgc2],
+                        borderwidth=2,
+                        #this_current_screen_border='5e81ac',
+                        #this_screen_border='81a1c1',
+                        hide_unused=True,
+                        disable_drag=True),
+                    widget.Prompt(background=bgc1),
+                    widget.Sep(padding=12, background=bgc1, linewidth=0),
+                    widget.Sep(padding=12, background=bgc2, linewidth=0),
+                    widget.WindowName(
+                        font='sans', background=bgc2, foreground=fgc2),
+                    widget.Chord(
+                        chords_colors={
+                            'launch': (bgc1, fgc1),
+                            },
+                        name_transform=lambda name: name.upper(),
+                        ),
+                    widget.Sep(padding=12, background=bgc1, linewidth=0),
+                    widget.Notify(background=bgc1,
+                        foreground=fgc1,
+                        foreground_low='e5e9f0',
+                        foreground_urgent='d08770',
+                        padding=6),
+                    widget.Sep(padding=24, background=bgc1),
+                    widget.Systray(background=bgc1),
+                    widget.Sep(padding=24, background=bgc1),
+                    widget.TextBox(text='Vol:[', background=bgc1),
+                    widget.Volume(background=bgc1),
+                    widget.TextBox(background=bgc1, text=']'),
+                    widget.Sep(padding=6, linewidth=0, background=bgc1),
+                    widget.Net(format='Dl:[{down}] ', background=bgc1),
+                    widget.CPU(format='Freq:[{freq_current}GHz] ',
+                        background=bgc1),
+                    widget.Sep(padding=24, background=bgc1, linewidth=0),
+                    widget.Clock(background=bgc1, format='%H:%M'),
+                    widget.Sep(padding=24, linewidth=0, background=bgc1),
+                    ],
+                24,
                 ),
-                widget.Sep(padding=12, background=bgc1, linewidth=0),
-                widget.Notify(background=bgc1,
-                              foreground=fgc1,
-                              foreground_low='e5e9f0',
-                              foreground_urgent='d08770',
-                              padding=6),
-                widget.Sep(padding=24, background=bgc1),
-                widget.Systray(background=bgc1),
-                widget.Sep(padding=24, background=bgc1),
-                widget.TextBox(text='Vol:[', background=bgc1),
-                widget.Volume(background=bgc1),
-                widget.TextBox(background=bgc1, text=']'),
-                widget.Sep(padding=6, linewidth=0, background=bgc1),
-                widget.Net(format='Dl:[{down}] ', background=bgc1),
-                widget.CPU(format='Freq:[{freq_current}GHz] ',
-                           background=bgc1),
-                widget.Battery(format='Bat:[{char}{percent:2.0%} {watt:.1f}W]',
-                               background=bgc1),
-                widget.Sep(padding=12, background=bgc1, linewidth=0),
-                widget.Sep(padding=12, background=bgc1, linewidth=0),
-                widget.Clock(background=bgc1, format='%H:%M'),
-                widget.Sep(padding=24, linewidth=0, background=bgc1),
-            ],
-            24,
-        ),
-        #wallpaper="~/Pictures/Wallpapers/sunset.jpg",
-        #wallpaper_mode='fill'
-    ),
-]
+            #wallpaper="~/Pictures/Wallpapers/sunset.jpg",
+            #wallpaper_mode='fill'
+            ),
+        ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod],
-         "Button1",
-         lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod],
-         "Button3",
-         lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
-]
+        Drag([mod],
+            "Button1",
+            lazy.window.set_position_floating(),
+            start=lazy.window.get_position()),
+        Drag([mod],
+            "Button3",
+            lazy.window.set_size_floating(),
+            start=lazy.window.get_size()),
+        Click([mod], "Button2", lazy.window.bring_to_front())
+        ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
@@ -260,7 +258,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-])
+    ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 wmname = "LG3D"
