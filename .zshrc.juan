@@ -5,3 +5,6 @@ alias icat='kitty + icat'
 alias clipboard='kitty +kitten clipboard'
 alias ssh='kitty +kitten ssh'
 fortune | ponysay -f fluttershy -f fluttershygala -f applejack -f bigmac -f bigmacsleep -f celestia -f celestiasmall -f pinkie -f pinkiebounce -f rainbow -f pinkiefly -f pinkiegala -f rainbowfly -f rainbowgla -f rainbowsleep -f rarity -f rarityfly -f spike -f trixie -f twilight -f twilightfly -f twilightwings
+
+#set man width
+
