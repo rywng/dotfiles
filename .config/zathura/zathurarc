@@ -1,0 +1,38 @@
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+set recolor "true"
+
+
+# Base16 Nord
+# Author: arcticicestudio
+
+set default-bg                  "#161821"
+set default-fg                  "#1e2132"
+
+set statusbar-fg                "#6b7089"
+set statusbar-bg                "#161821"
+
+set inputbar-bg                 "#161821"
+set inputbar-fg                 "#84a0c6"
+
+set notification-bg             "#161821"
+set notification-fg             "#91acd1"
+
+set notification-error-bg       "#161821"
+set notification-error-fg       "#e27878"
+
+set notification-warning-bg     "#161821"
+set notification-warning-fg     "#e27878"
+
+set highlight-color             "#e2a478"
+set highlight-active-color      "#91acd1"
+
+set completion-bg               "#161821"
+set completion-fg               "#84a0c6"
+
+set completion-highlight-fg     "#95c4ce"
+set completion-highlight-bg     "#a093c7"
+
+set recolor-lightcolor          "#161821"
+set recolor-darkcolor           "#c6c8d1"
+
