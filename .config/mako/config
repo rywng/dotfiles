@@ -1,0 +1,8 @@
+on-button-middle=dismiss-all
+font=monospace 12
+text-color=#d2d4de
+background-color=#161821
+progress-color=source #b4be82
+border-color=#89b8c2
+default-timeout=10000
+layer=overlay
