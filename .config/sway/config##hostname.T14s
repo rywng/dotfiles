@@ -14,6 +14,7 @@ exec wlsunset -l 30.4 -L 104.0 -T 6500 -t 3500
 exec --no-startup-id pipewire
 exec mako
 exec light -S 70
+exec mpd
 
 #my keybinds
 
@@ -61,7 +62,7 @@ force_display_urgency_hint 500 ms
 smart_borders no_gaps
 
 #floating thingys
-bindsym $mod+Ctrl+s floating toggle ; sticky toggle ; resize set 800 600 ; move position 55ppt 5ppt
+bindsym $mod+Shift+s floating toggle ; sticky toggle ; resize set 800 600 ; move position 55ppt 5ppt
 
 # swap caps and ctrl on PS-2 keyboard
 input 1:1:AT_Translated_Set_2_keyboard {
