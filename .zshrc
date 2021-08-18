@@ -62,6 +62,20 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '' edit-command-line
 
+#TheFuck plugin
+fuck_cache="$HOME/.cache/thefuck"
+test -f $fuck_cache || thefuck --alias uwu >| "$fuck_cache"
+source "$fuck_cache"
+unset fuck_cache
+
+#source fasd_cache for 40 ms quicker start.
+fasd_cache="$HOME/.cache/fasd_cache"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias posix-hook >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
 #use lf to change dirs. credit: luke
 lfcd () {
   tmp="$(mktemp)"
@@ -110,14 +124,6 @@ export PATH="${PATH}:${HOME}/.scripts/"
 #ccache support
 export USE_CCACHE=1
 export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
-
-#source fasd_cache for 40 ms quicker start.
-fasd_cache="$HOME/.cache/fasd_cache"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias posix-hook >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
 
 alias     b='bat'
 alias btctl='bluetoothctl'

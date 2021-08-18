@@ -366,7 +366,7 @@ space_add_mode = add_remove
 ## media_library, playlist_editor, tag_editor, outputs, visualizer, clock,
 ## lyrics, last_fm.
 ##
-screen_switcher_mode = playlist, media_library, playlist_editor, visualizer, help
+screen_switcher_mode = previous
 #
 ##
 ## Note: You can define startup screen by choosing screen from the list above.

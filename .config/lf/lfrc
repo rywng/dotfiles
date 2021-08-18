@@ -5,10 +5,20 @@ set drawbox true
 set icons true
 set ignorecase true
 set info size
+# set previewer ~/.config/lf/preview.sh
+# set preview true
 
 map D push %rm<space>-rf<space>$fs
 map a push %mkdir<space>
 map x $$f
+
+# xdg-open
+cmd open ${{
+  case $(file --mime-type "$f" -bL) in
+    text/*|application/json) $EDITOR "$f";;
+    *) xdg-open "$f" ;;
+  esac
+}}
 
 # bulk-rename
 cmd bulk-rename ${{
