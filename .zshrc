@@ -64,7 +64,7 @@ bindkey '' edit-command-line
 
 #TheFuck plugin
 fuck_cache="$HOME/.cache/thefuck"
-test -f $fuck_cache || thefuck --alias uwu >| "$fuck_cache"
+test -f $fuck_cache || thefuck --alias pls >| "$fuck_cache"
 source "$fuck_cache"
 unset fuck_cache
 
@@ -130,6 +130,7 @@ alias btctl='bluetoothctl'
 alias    cp='cp -iv'
 alias    df='df -h'
 alias  diff='diff --color=auto'
+alias   nya='doas'
 alias     e='emerge'
 alias  free='free -h'
 alias     g='git'
