@@ -62,19 +62,8 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '' edit-command-line
 
-#TheFuck plugin
-fuck_cache="$HOME/.cache/thefuck"
-test -f $fuck_cache || thefuck --alias pls >| "$fuck_cache"
-source "$fuck_cache"
-unset fuck_cache
-
-#source fasd_cache for 40 ms quicker start.
-fasd_cache="$HOME/.cache/fasd_cache"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias posix-hook >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
+export _Z_DATA="$HOME/.cache/z"
+. $HOME/.cache/z.sh
 
 #use lf to change dirs. credit: luke
 lfcd () {
@@ -120,6 +109,7 @@ export LESS="-RSM~"
 #local path
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.scripts/"
+export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support
 export USE_CCACHE=1
