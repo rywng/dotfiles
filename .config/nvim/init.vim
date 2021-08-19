@@ -109,6 +109,16 @@ nmap <space>b <Plug>(easymotion-B)
 " fix intending.
 vmap < <gv
 vmap > >gv
+" make Y behave like other Capitalized letters
+nnoremap Y y$
+" n/N also centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" undo to the last , . or !
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
 " Shortcutting split navigation
 map <A-h> <C-w>h
 map <A-j> <C-w>j
