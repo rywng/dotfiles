@@ -64,6 +64,10 @@ bindkey '' edit-command-line
 
 export _Z_DATA="$HOME/.cache/z"
 . $HOME/.cache/z.sh
+zz () {
+  cd `z -l $* | fzf | awk '{print $2}'`
+}
+alias zc="z -c"
 
 #use lf to change dirs. credit: luke
 lfcd () {
