@@ -124,7 +124,6 @@ alias btctl='bluetoothctl'
 alias    cp='cp -iv'
 alias    df='df -h'
 alias  diff='diff --color=auto'
-alias   nya='doas'
 alias     e='emerge'
 alias  free='free -h'
 alias     g='git'
@@ -133,7 +132,9 @@ alias    ip='ip -color=auto'
 alias    la='ls -a --color=auto'
 alias    ll='ls -lh --color=auto'
 alias    ls='ls --color=auto'
+alias   nya='doas'
 alias    pd='pandoc --pdf-engine=xelatex -V "mainfont:Source Han Sans CN"'
+alias   pls='echo "doas "$(fc -ln -1) && doas $(fc -ln -1)'
 alias    se='doas emerge'
 alias    sp='doas pacman'
 alias   ssh='TERM="xterm-256color" ssh'
@@ -149,3 +150,5 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+bindkey ' ' magic-space
