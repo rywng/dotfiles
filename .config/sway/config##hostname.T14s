@@ -5,7 +5,7 @@ set $up k
 set $right l
 set $term kitty
 set $menu wofi | xargs swaymsg exec --
-output * bg $(find /home/juan/Pictures/Wallpapers/. -type f | shuf -n1) fill
+output * bg $(find ~/Pictures/Wallpapers/ -type f | shuf -n1) fill
 
 ###CUSTOMIZATION START###
 
