@@ -25,6 +25,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice lucid wait
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
+zinit ice lucid wait
+zinit light agkozak/zsh-z
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -62,8 +64,8 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '' edit-command-line
 
-export _Z_DATA="$HOME/.cache/z"
-. $HOME/.cache/z.sh
+export ZSHZ_CASE=smart
+export ZSHZ_DATA="$HOME/.cache/z"
 zz () {
   cd `z -l $* | fzf | awk '{print $2}'`
 }
