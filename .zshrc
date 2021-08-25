@@ -101,6 +101,9 @@ export GOPATH=$HOME/.cache/go
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
 
+#settings for software
+export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
+
 #colored output
 export LESS_TERMCAP_md=$'\e[01;35m'
 export LESS_TERMCAP_me=$'\e[0m'

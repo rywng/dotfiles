@@ -18,6 +18,7 @@ exec mpd
 
 #my keybinds
 
+bindsym $mod+Ctrl+o exec ~/.config/sway/scripts/outputs.sh
 bindsym $mod+Ctrl+l exec ~/.config/sway/scripts/logout.sh
 bindsym $mod+Print exec grim ~/Pictures/Screenshots/$(date +'%H:%M_%y%m%d.png'); \
 exec notify-send -t 3000 'Screenshot saved.'

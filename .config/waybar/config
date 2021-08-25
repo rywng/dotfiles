@@ -2,7 +2,7 @@
   "layer": "top", // Waybar at top layer
   "height": 24, // Waybar height (to be removed for auto height)
   // Choose the order of the modules
-  "modules-left": ["sway/workspaces", "sway/mode", "custom/media","sway/window"],
+  "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": [],
   "modules-right": ["tray","mpd","custom/weather","network","battery","clock"],
   "mpd": {
