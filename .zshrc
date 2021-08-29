@@ -22,11 +22,13 @@ source "$HOME/.zinit/bin/zinit.zsh"
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-history-substring-search
+
 zinit ice lucid wait
 zinit light zdharma/fast-syntax-highlighting
-zinit light zsh-users/zsh-history-substring-search
 zinit ice lucid wait
 zinit light agkozak/zsh-z
+
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -134,9 +136,9 @@ alias  free='free -h'
 alias     g='git'
 alias  grep='grep --color=auto'
 alias    ip='ip -color=auto'
-alias    la='ls -a --color=auto'
-alias    ll='ls -lh --color=auto'
-alias    ls='ls --color=auto'
+alias    la='exa -a'
+alias    ll='exa -l'
+alias    ls='exa'
 alias   nya='doas'
 alias    pd='pandoc --pdf-engine=xelatex -V "mainfont:Source Han Sans CN"'
 alias   pls='echo "doas "$(fc -ln -1) && doas $(fc -ln -1)'
@@ -144,6 +146,7 @@ alias    se='doas emerge'
 alias    sp='doas pacman'
 alias   ssh='TERM="xterm-256color" ssh'
 alias    sv='doasedit.sh'
+alias     p='python'
 alias     v='nvim'
 alias    vw='nvim -c VimwikiIndex'
 alias yt-dl='yt-dlp --sub-lang en,zh-Hant --audio-format best'

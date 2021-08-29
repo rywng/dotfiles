@@ -70,6 +70,11 @@ input 1:1:AT_Translated_Set_2_keyboard {
     xkb_options "ctrl:swapcaps"
 }
 
+input type:pointer {
+    accel_profile flat
+    pointer_accel 0
+}
+
 ###END###
 
 # Start a terminal
