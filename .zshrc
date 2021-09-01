@@ -73,14 +73,19 @@ zz () {
 }
 alias zc="z -c"
 
-#use lf to change dirs. credit: luke
-lfcd () {
-  tmp="$(mktemp)"
-  lf -last-dir-path="$tmp" "$@"
-  if [ -f "$tmp" ]; then
-    dir="$(cat "$tmp")"
-    rm -f "$tmp"
-    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+
+n ()
+{
+  # Block nesting of nnn in subshells
+  if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+    echo "nnn is already running"
+    return
+  fi
+  NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+  nnn "$@" "-G"
+  if [ -f "$NNN_TMPFILE" ]; then
+    . "$NNN_TMPFILE"
+    rm -f "$NNN_TMPFILE" > /dev/null
   fi
 }
 
@@ -118,8 +123,7 @@ export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB
 export LESS="-RSM~"
 
 #local path
-export PATH="${PATH}:${HOME}/.local/bin/"
-export PATH="${PATH}:${HOME}/.scripts/"
+export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/.scripts/:${HOME}/.cache/cargo/bin/"
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support
@@ -135,6 +139,7 @@ alias     e='emerge'
 alias  free='free -h'
 alias     g='git'
 alias  grep='grep --color=auto'
+alias  info="info --vi-keys"
 alias    ip='ip -color=auto'
 alias    la='exa -a'
 alias    ll='exa -l'
@@ -142,14 +147,14 @@ alias    ls='exa'
 alias   nya='doas'
 alias    pd='pandoc --pdf-engine=xelatex -V "mainfont:Source Han Sans CN"'
 alias   pls='echo "doas "$(fc -ln -1) && doas $(fc -ln -1)'
+alias     p='python'
 alias    se='doas emerge'
 alias    sp='doas pacman'
 alias   ssh='TERM="xterm-256color" ssh'
 alias    sv='doasedit.sh'
-alias     p='python'
 alias     v='nvim'
 alias    vw='nvim -c VimwikiIndex'
-alias yt-dl='yt-dlp --sub-lang en,zh-Hant --audio-format best'
+alias yt-dl='youtube-dl --sub-lang en,zh-Hant --audio-format best'
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
