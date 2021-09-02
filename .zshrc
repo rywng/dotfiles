@@ -107,6 +107,7 @@ export CARGO_HOME=$HOME/.cache/cargo
 export GOPATH=$HOME/.cache/go
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
+export WINEPREFIX="$HOME/.config/wine"
 
 #settings for software
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
