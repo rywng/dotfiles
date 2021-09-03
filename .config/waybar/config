@@ -41,6 +41,6 @@
   "custom/player": {
     "exec": "playerctl metadata --format '{{uc(playerName)}}: {{ artist }} - {{ album }} - {{ title }} {{emoji(status)}}'",
     "interval": 10,
-    "on-click": "playerctl play-pause"
+    "on-click": "playerctl play-pause && notify-send `playerctl status` -t 1000"
   }
 }
