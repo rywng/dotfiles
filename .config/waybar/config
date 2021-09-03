@@ -35,7 +35,7 @@
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "custom/weather": {
-    "exec": "sleep 10 && curl 'wttr.in/?format=%t+(%f)+%c' || echo 'No weather data '",
+    "exec": "sleep 10 && curl 'wttr.in/?format=%t+(%f)+%c'",
     "interval": 1800
   },
   "custom/player": {
