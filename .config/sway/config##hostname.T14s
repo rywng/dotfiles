@@ -11,10 +11,12 @@ output * bg $(find ~/Pictures/Wallpapers/ -type f | shuf -n1) fill
 
 ##starting userspace software
 exec wlsunset -l 30.4 -L 104.0 -T 6500 -t 3500
+exec light -S 70
 exec --no-startup-id pipewire
 exec mako
-exec light -S 70
 exec mpd
+exec ~/.cache/go/bin/mpd-mpris
+exec playerctld daemon
 
 #my keybinds
 

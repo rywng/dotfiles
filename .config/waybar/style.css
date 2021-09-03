@@ -38,7 +38,7 @@ window#waybar {
 #clock,
 #battery,
 #network,
-#mpd,
+#custom-player,
 #custom-weather {
   background-color: #161821;
   padding: 0px 10px;
@@ -70,7 +70,7 @@ window#waybar {
   animation-direction: alternate;
 }
 
-#mpd {
+#custom-player {
   border-radius: 2px 0px 0px 2px;
   margin-left: 10px;
 }
