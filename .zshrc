@@ -124,7 +124,7 @@ export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB
 export LESS="-RSM~"
 
 #local path
-export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/.scripts/:${HOME}/.cache/cargo/bin/"
+export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/.scripts/:${HOME}/.cache/cargo/bin/:${HOME}/.cache/go/bin/"
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support
