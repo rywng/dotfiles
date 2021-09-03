@@ -124,14 +124,14 @@ export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB
 export LESS="-RSM~"
 
 #local path
-export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/.scripts/:${HOME}/.cache/cargo/bin/:${HOME}/.cache/go/bin/"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/.cache/cargo/bin:${HOME}/.cache/go/bin"
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support
 export USE_CCACHE=1
 export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
 
-alias     b='bat'
+alias     b='bat -n'
 alias btctl='bluetoothctl'
 alias    cp='cp -iv'
 alias    df='df -h'
