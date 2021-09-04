@@ -11,13 +11,11 @@ window#waybar {
 }
 
 #workspaces {
-  margin: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 2px;
+  margin: 5px 10px;
 }
 #workspaces button {
-  padding: 0 4px;
+  padding: 0 12px;
+  border-radius: 0;
 }
 
 #workspaces button.focused {

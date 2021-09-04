@@ -26,9 +26,9 @@ exec notify-send -t 3000 'Screenshot saved.'
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-   gsettings set $gnome-schema gtk-theme 'Materia-dark'
-   gsettings set $gnome-schema icon-theme 'Arc'
-   #gsettings set $gnome-schema cursor-theme 'cursor theme name'
+   gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+   gsettings set $gnome-schema icon-theme 'Papirus'
+   #gsettings set $gnome-schema cursor-theme 'Adwaita'
    gsettings set $gnome-schema font-name 'ibm-plex 12'
    export XDG_CURRENT_DESKTOP=Unity
 }
