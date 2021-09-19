@@ -1,11 +1,9 @@
-echo '\033[0;36m    ___      ___      ___      ___    '
-echo '\033[0;36m   /\  \    /\__\    /\  \    /\__\   '
-echo '\033[0;36m  _\:\  \  /:/ _/_  /::\  \  /:| _|_  '
-echo '\033[0;36m /\/::\__\/:/_/\__\/::\:\__\/::|/\__\ '
-echo '\033[0;36m \::/\/__/\:\/:/  /\/\::/  /\/|::/  / '
-echo '\033[0;36m  \/__/    \::/  /   /:/  /   |:/  /  '
-echo '\033[0;36m            \/__/    \/__/    \/__/   '
-echo '\033[0;36m                                      '
+echo '\033[0;36m      _              '
+echo '\033[0;36m     (_)_ _____ ____ '
+echo '\033[0;36m    / / // / _ `/ _ \'
+echo '\033[0;36m __/ /\_,_/\_,_/_//_/'
+echo '\033[0;36m|___/                '
+echo
 echo '\033[0;35m   /w '$(awk -F "=" '/^NAME/ {print $2}' < /etc/os-release )
 echo '\033[0;34m    @ '$HOST
 
@@ -108,6 +106,7 @@ export GOPATH=$HOME/.cache/go
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
 export WINEPREFIX="$HOME/.config/wine"
+export TASKRC=$HOME/.config/task/taskrc
 
 #settings for software
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
