@@ -1,46 +1,47 @@
 {
-  "layer": "top", // Waybar at top layer
-  "height": 24, // Waybar height (to be removed for auto height)
-  // Choose the order of the modules
-  "modules-left": ["sway/workspaces", "sway/window"],
-  "modules-center": [],
-  "modules-right": ["tray","custom/player","custom/weather","network","battery","clock"],
-  "tray": {
-    "spacing": 10
-  },
-  "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
-  },
-  "battery": {
-    "states": {
-      "good": 80,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
-  },
-  "network": {
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-  "custom/weather": {
-    "exec": "sleep 10 && curl 'wttr.in/?format=%t+(%f)+%c'",
-    "interval": 1800
-  },
-  "custom/player": {
-    "exec": "playerctl metadata --format '{{uc(playerName)}}: {{ artist }} - {{ album }} - {{ title }} {{emoji(status)}}' || echo 'Stopped  '",
-    "interval": 15,
-    "on-click": "playerctl play-pause && notify-send `playerctl status` -t 1000"
-  }
+	"layer": "top", // Waybar at top layer
+		"height": 24, // Waybar height (to be removed for auto height)
+		// Choose the order of the modules
+		"modules-left": ["sway/workspaces", "sway/window"],
+		"modules-center": [],
+		"modules-right": ["tray","custom/player","custom/weather","network","battery","clock"],
+		"tray": {
+			"spacing": 10
+		},
+		"clock": {
+			"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+			"format-alt": "{:%Y-%m-%d}"
+		},
+		"battery": {
+			"states": {
+				"good": 80,
+				"warning": 30,
+				"critical": 15
+			},
+			"format": "{capacity}% {icon}",
+			"format-charging": "{capacity}% ",
+			"format-plugged": "{capacity}% ",
+			"format-alt": "{time} {icon}",
+			"format-icons": ["", "", "", "", ""]
+		},
+		"battery#bat2": {
+			"bat": "BAT2"
+		},
+		"network": {
+			"format-wifi": "{essid} ({signalStrength}%) ",
+			"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+			"format-linked": "{ifname} (No IP) ",
+			"format-disconnected": "Disconnected ",
+			"format-alt": "{ifname}: {ipaddr}/{cidr}"
+		},
+		"custom/weather": {
+			"exec": "sleep 10 && curl 'wttr.in/?format=%t+(%f)+%c'",
+			"interval": 1800
+		},
+		"custom/player": {
+			"escape": true,
+			"exec": "playerctl metadata --format '{{uc(playerName)}}: {{ artist }} - {{ album }} - {{ title }} {{emoji(status)}}' || echo 'Stopped  '",
+			"interval": 15,
+			"on-click": "playerctl play-pause && notify-send `playerctl status` -t 1000"
+		}
 }
