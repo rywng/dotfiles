@@ -35,7 +35,7 @@
 			"format-alt": "{ifname}: {ipaddr}/{cidr}"
 		},
 		"custom/weather": {
-			"exec": "sleep 10 && curl 'wttr.in/?format=%t+(%f)+%c'",
+			"exec": "sleep 10 && curl 'https://wttr.in/?format=%t+(%f)+%c'",
 			"interval": 1800
 		},
 		"custom/player": {
