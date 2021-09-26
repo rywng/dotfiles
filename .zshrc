@@ -109,6 +109,7 @@ export TASKRC=$HOME/.config/task/taskrc
 
 #settings for software
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
+export GPG_TTY=$(tty) # fixes gpg
 
 #colored output
 export LESS_TERMCAP_md=$'\e[01;35m'
