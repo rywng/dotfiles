@@ -101,7 +101,6 @@ dmpv () {
 #config location
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
-export CARGO_HOME=$HOME/.cache/cargo
 export GOPATH=$HOME/.cache/go
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
@@ -123,7 +122,7 @@ export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB
 export LESS="-RSM~"
 
 #local path
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/.cache/cargo/bin:${HOME}/.cache/go/bin"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin"
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support
