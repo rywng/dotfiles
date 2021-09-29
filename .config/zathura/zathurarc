@@ -1,10 +1,5 @@
 set window-title-basename "true"
 set selection-clipboard "clipboard"
-set recolor "true"
-
-
-# Base16 Nord
-# Author: arcticicestudio
 
 set default-bg                  "#161821"
 set default-fg                  "#1e2132"
