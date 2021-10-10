@@ -142,7 +142,7 @@ alias  grep='grep --color=auto'
 alias  info="info --vi-keys"
 alias    ip='ip -color=auto'
 alias    la='ls -a --color=auto'
-alias    ll='ls -l --color=auto'
+alias    ll='ls -l --color=auto --human-readable'
 alias    ls='ls --color=auto'
 alias   nya='doas'
 alias     p='python'
