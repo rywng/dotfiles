@@ -54,10 +54,11 @@ bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[(
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
 
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec 'playerctl play'
+bindsym XF86AudioPause exec 'playerctl pause'
+binsdym XF86AudioStop exec 'playerctl stop'
+bindsym XF86AudioNext exec 'playerctl next'
+bindsym XF86AudioPrev exec 'playerctl previous'
 
 #borders stuff
 
