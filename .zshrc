@@ -139,7 +139,7 @@ alias     g='git'
 alias  grep='grep --color=auto'
 alias  info="info --vi-keys"
 alias    ip='ip -color=auto'
-alias    la='ls -a --color=auto'
+alias    la='ls -la --color=auto --human-readable'
 alias    ll='ls -l --color=auto --human-readable'
 alias    ls='ls --color=auto'
 alias   nya='doas'
