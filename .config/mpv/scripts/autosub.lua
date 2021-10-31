@@ -173,10 +173,10 @@ function autosub_allowed()
     if not bools.auto then
         mp.msg.warn('Automatic downloading disabled!')
         return false
-    -- elseif duration < 900 then
-    --     mp.msg.warn('Video is less than 15 minutes\n' ..
-    --                   '=> NOT auto-downloading subtitles')
-    --     return false
+    elseif duration < 900 then
+        mp.msg.warn('Video is less than 15 minutes\n' ..
+                      '=> NOT auto-downloading subtitles')
+        return false
     elseif directory:find('^http') then
         mp.msg.warn('Automatic subtitle downloading is disabled for web streaming')
         return false
