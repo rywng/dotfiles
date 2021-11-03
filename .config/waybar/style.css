@@ -36,8 +36,8 @@ window#waybar {
 #clock,
 #battery,
 #network,
-#custom-player,
-#custom-weather {
+/* #custom-weather, */
+#custom-player {
   background-color: #161821;
   padding: 0px 10px;
   margin: 5px 0px;

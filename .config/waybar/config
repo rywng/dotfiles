@@ -4,7 +4,7 @@
 		// Choose the order of the modules
 		"modules-left": ["sway/workspaces", "sway/window"],
 		"modules-center": [],
-		"modules-right": ["tray","custom/player","custom/weather","network","battery","clock"],
+		"modules-right": ["tray","custom/player","network","battery","clock"],
 		"tray": {
 			"spacing": 10
 		},
@@ -34,10 +34,10 @@
 			"format-disconnected": "Disconnected ",
 			"format-alt": "{ifname}: {ipaddr}/{cidr}"
 		},
-		"custom/weather": {
-			"exec": "sleep 10 && curl 'https://wttr.in/?format=%t+(%f)+%c'",
-			"interval": 1800
-		},
+		//"custom/weather": {
+		//	"exec": "sleep 10 && curl 'https://wttr.in/?format=%t+(%f)+%c'",
+		//	"interval": 1800
+		//},
 		"custom/player": {
 			"escape": true,
 			"exec": "playerctl metadata --format '{{uc(playerName)}}: {{ artist }} - {{ album }} - {{ title }} {{emoji(status)}}' || echo 'Stopped  '",
