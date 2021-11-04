@@ -1,8 +1,4 @@
-echo
-echo '\033[0;36m _   ___      ___   _ '
-echo '\033[0;36m| | | \ \ /\ / / | | |'
-echo '\033[0;36m| |_| |\ V  V /| |_| |'
-echo '\033[0;36m \__,_| \_/\_/  \__,_|'
+cat ~/.config/splash 2> /dev/null || true
 echo
 echo '\033[0;35m   /w '$(awk -F "=" '/^NAME/ {print $2}' < /etc/os-release )
 echo '\033[0;34m    @ '$HOST
