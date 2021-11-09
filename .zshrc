@@ -7,21 +7,25 @@ echo '\033[0;34m    @ '$HOST
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
   print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
   command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-  command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
     print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 source "$HOME/.zinit/bin/zinit.zsh"
 
+zinit ice lucid wait
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit ice lucid wait
+zinit light agkozak/zsh-z
+zinit ice lucid wait
+zinit light zpm-zsh/colorize
+
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 zinit light zsh-users/zsh-autosuggestions
+zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-history-substring-search
 
-zinit ice lucid wait
-zinit light zdharma/fast-syntax-highlighting
-zinit ice lucid wait
-zinit light agkozak/zsh-z
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -128,16 +132,12 @@ alias     b='bat -n'
 alias btctl='bluetoothctl'
 alias    cp='cp -iv'
 alias    df='df -h'
-alias  diff='diff --color=auto'
 alias     e='emerge'
 alias  free='free -h'
 alias     g='git'
-alias  grep='grep --color=auto'
 alias  info="info --vi-keys"
-alias    ip='ip -color=auto'
-alias    la='ls -la --color=auto --human-readable'
-alias    ll='ls -l --color=auto --human-readable'
-alias    ls='ls --color=auto'
+alias    la='ls -la --human-readable'
+alias    ll='ls -l --human-readable'
 alias   nya='doas'
 alias     p='python'
 alias    se='doas emerge'
