@@ -5,60 +5,85 @@ set $up k
 set $right l
 set $term kitty
 set $menu wofi | xargs swaymsg exec --
-
-output * bg $(find /home/juan/Pictures/Wallpapers/. -type f | shuf -n1) fill
-output DP-3 mode 2560x1440@144Hz
-input * xkb_numlock enable
-input "5426:92:Razer_Razer_DeathAdder_Elite" {
-  accel_profile flat
-  pointer_accel -0.5
-}
+output * bg $(find ~/Pictures/Wallpapers/ -type f | shuf -n1) fill
 
 ###CUSTOMIZATION START###
 
+##starting userspace software
+exec wlsunset -l 30.4 -L 104.0 -T 6500 -t 3500
+exec light -S 70
+exec --no-startup-id pipewire
+exec mako
+exec playerctld daemon
+
 #my keybinds
 
-bindsym $mod+Ctrl+l exec swaylock -c 000000 -f
-bindsym $mod+Print exec grim ~/Pictures/Screenshots/$(date +'%s_grim.png'); \
+bindsym $mod+Ctrl+l exec ~/.config/sway/scripts/logout.sh
+bindsym $mod+Print exec grim ~/Pictures/Screenshots/$(date +'%H:%M_%y%m%d.png') && \
 exec notify-send -t 3000 'Screenshot saved.'
-
-exec fcitx
-exec wlsunset -l 30.4 -L 104.0 -T 6500 -t 3500
 
 #set gtk theme
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-gsettings set $gnome-schema gtk-theme 'Materia-dark'
-gsettings set $gnome-schema icon-theme 'Arc'
-#gsettings set $gnome-schema cursor-theme 'cursor theme name'
-gsettings set $gnome-schema font-name 'ibm-plex 12'
+   gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+   gsettings set $gnome-schema icon-theme 'Papirus-Light'
+   gsettings set $gnome-schema cursor-theme 'Adwaita'
+   gsettings set $gnome-schema font-name 'ibm-plex 12'
+   export XDG_CURRENT_DESKTOP=Unity
 }
 
 #set colour
 
 #color class            border  backgr. text    indicator child_border
-client.focused          #b48ead #2e3440 #eceff4 #88c0d0   #b48ead
-client.focused_inactive #4c566a #2e3440 #eceff4 #88c0d0   #4c566a
-client.unfocused        #4c566a #2e3440 #eceff4 #88c0d0   #4c566a
-client.urgent           #bf616a #2e3440 #eceff4 #88c0d0   #bf616a
-client.placeholder      #4c566a #2e3440 #eceff4 #88c0d0   #4c566a
-client.background       #2e3440
+client.focused          #a093c7 #161821 #d2d4de #84a0c6   #a093c7
+client.focused_inactive #6b7089 #161821 #d2d4de #84a0c6   #6b7089
+client.unfocused        #6b7089 #161821 #d2d4de #84a0c6   #6b7089
+client.urgent           #e27878 #161821 #d2d4de #84a0c6   #bf616a
+client.placeholder      #6b7089 #161821 #d2d4de #84a0c6   #6b7089
+client.background       #6b7089
+#2e3440
 
 #bind fn keys
 
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
-bindsym XF86AudioRaiseVolume exec amixer sset Master 3%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
-bindsym XF86AudioLowerVolume exec amixer sset Master 3%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+bindsym XF86AudioRaiseVolume exec amixer sset Master 2048+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec amixer sset Master 2048- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
 bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob
+bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+
+bindsym XF86AudioPause exec 'playerctl pause'
+binsdym XF86AudioStop exec 'playerctl stop'
+bindsym XF86AudioNext exec 'playerctl next'
+bindsym XF86AudioPrev exec 'playerctl previous'
 
 #borders stuff
 
 default_border pixel 2
-workspace_auto_back_and_forth yes
+#workspace_auto_back_and_forth yes
 force_display_urgency_hint 500 ms
-gaps inner 40
+smart_borders no_gaps
+
+#floating thingys
+bindsym $mod+Shift+s floating toggle ; sticky toggle ; resize set 800 600 ; move position 55ppt 5ppt
+
+# swap caps and ctrl on PS-2 keyboard
+input 1:1:AT_Translated_Set_2_keyboard {
+    xkb_options "ctrl:swapcaps"
+}
+
+input type:pointer {
+    accel_profile flat
+    pointer_accel 0.3
+}
+
+input type:touchpad {
+		accel_profile adaptive
+		pointer_accel -0.3
+		tap enabled
+}
 
 ###END###
 
@@ -72,7 +97,10 @@ bindsym $mod+Shift+Return exec $menu
 floating_modifier $mod normal
 
 bindsym $mod+Ctrl+r reload
-bindsym $mod+Ctrl+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Ctrl+q exit
+
+# Change fcitx IME
+bindsym $mod+Ctrl+space exec fcitx5-remote -t
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -84,6 +112,11 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
+# resize windows
+bindsym $mod+less resize shrink width 20px
+bindsym $mod+greater resize grow width 20px
+bindsym $mod+minus resize shrink height 20px
+bindsym $mod+plus resize grow height 20px
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -94,7 +127,6 @@ bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 0
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -105,7 +137,6 @@ bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 0
 #
 # Layout stuff:
 #
@@ -127,25 +158,10 @@ bindsym $mod+space focus mode_toggle
 # Move focus to the parent or child container
 bindsym $mod+a focus parent
 bindsym $mod+z focus child
-#
-# Scratchpad:
-#
-# Sway has a "scratchpad", which is a bag of holding for windows.
-# You can send windows there and get them back later.
 
 # Move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
-mode "resize" {
-	bindsym $left resize shrink width 10px
-		bindsym $down resize grow height 10px
-		bindsym $up resize shrink height 10px
-		bindsym $right resize grow width 10px
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+0 move scratchpad
+bindsym $mod+0 scratchpad show
 
 bar swaybar_command waybar
 
