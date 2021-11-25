@@ -96,6 +96,12 @@ dmpv () {
   disown
 }
 
+# run mpd if not running
+ncmpcpp () {
+	pidof mpd > /dev/null || mpd.sh > /dev/null || true
+	command ncmpcpp
+}
+
 #config location
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache

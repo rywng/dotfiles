@@ -82,6 +82,7 @@ input type:touchpad {
 		accel_profile adaptive
 		pointer_accel -0.3
 		tap enabled
+		dwt disabled
 }
 
 ###END###
