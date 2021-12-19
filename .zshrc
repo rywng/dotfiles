@@ -149,11 +149,11 @@ alias   nya='doas'
 alias     p='python'
 alias    se='doas emerge'
 alias   ssh='TERM="xterm-256color" ssh'
+alias    mv='mv -iv'
 alias    sv='doasedit.sh'
 alias     t='task'
 alias     v='nvim'
 alias    vw='nvim -c VimwikiIndex'
-alias yt-dl='youtube-dl --sub-lang en,zh-Hant --audio-format best'
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
