@@ -5,7 +5,6 @@ set $up k
 set $right l
 set $term kitty
 set $menu wofi | xargs swaymsg exec --
-output * bg $(find ~/Pictures/Wallpapers/ -type f | shuf -n1) fill
 
 ###CUSTOMIZATION START###
 
@@ -55,7 +54,7 @@ bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYS
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
 
 bindsym XF86AudioPause exec 'playerctl pause'
-binsdym XF86AudioStop exec 'playerctl stop'
+bindsym XF86AudioStop exec 'playerctl stop'
 bindsym XF86AudioNext exec 'playerctl next'
 bindsym XF86AudioPrev exec 'playerctl previous'
 
@@ -165,4 +164,5 @@ bindsym $mod+0 scratchpad show
 
 bar swaybar_command waybar
 
+output * bg $(find ~/Pictures/Wallpapers/ -type f | shuf -n1) fill
 include /etc/sway/config.d/*
