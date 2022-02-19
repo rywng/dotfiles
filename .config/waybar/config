@@ -42,6 +42,6 @@
 			"escape": true,
 			"exec": "playerctl metadata --format '{{uc(playerName)}}: {{ artist }} - {{ album }} - {{ title }} {{emoji(status)}}' || echo 'Stopped  '",
 			"interval": 15,
-			"on-click": "playerctl play-pause && notify-send `playerctl status` -t 1000"
+			"on-click": "playerctl play-pause && sleep 0.2 && notify-send `playerctl status` -t 1000"
 		}
 }
