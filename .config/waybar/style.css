@@ -9,7 +9,7 @@
 
 window#waybar {
   background: @background;
-  border-bottom: 2px solid @blue;
+  border-bottom: 2px solid @aqua;
   color: @white_b;
 }
 

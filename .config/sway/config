@@ -36,7 +36,7 @@ exec_always {
 #set colour
 
 #color class            border  backgr. text    indicator child_border
-client.focused          #82abbc #2a2f33 #bfddb2 #415c6d   #7fbbb3
+client.focused          #87c095 #2a2f33 #bfddb2 #415c6d   #7fbbb3
 client.focused_inactive #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
 client.unfocused        #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
 client.urgent           #d76e6e #2a2f33 #bfddb2 #415c6d   #e68183
