@@ -1,74 +1,102 @@
 * {
   border: none;
   border-radius: 0;
-  font-size: 14px;
+  font-size: 13px;
   min-height: 0;
-  color: #c6c8d1;
 }
 
+@import "serenade.css";
+
 window#waybar {
-  background: rgba(30, 33, 50, 0.9);
+  background: @background;
+  border-bottom: 2px solid @blue;
+  color: @white_b;
 }
 
 #workspaces {
   margin: 5px 10px;
 }
+
 #workspaces button {
-  padding: 0 12px;
-  border-radius: 0;
+  padding: 0 5px;
+  background: transparent;
+  color: @foreground;
+  border-bottom: 2px solid transparent;
 }
 
 #workspaces button.focused {
-  background: rgba(160, 147, 199, 0.5);
-  border-radius: 2px;
-}
-
-#workspaces button:hover {
-  background-color: rgba(173, 160, 211, 0.2);
-  border-radius: 2px;
+  background: @foreground;
+	color: @selection_background;
 }
 
 #workspaces button.urgent {
-  background-color: #e27878;
-  border-radius: 2px;
+  background-color: @magenta;
 }
 
+#mode,
 #clock,
-#battery,
-#network,
-/* #custom-weather, */
-#custom-player {
-  background-color: #161821;
-  padding: 0px 10px;
-  margin: 5px 0px;
+#battery {
+  padding: 0 10px;
+  margin: 0 5px;
 }
+
 
 #clock {
-  border-radius: 0px 2px 2px 0px;
-  margin-right: 10px;
+  background-color: @green;
+  color: @background;
+}
+
+#battery {
+  background-color: @yellow;
+  color: @background;
+}
+
+#battery.charging {
+  color: @background;
+  background-color: @green;
 }
 
 @keyframes blink {
   to {
-    background-color: #d2d4de;
-    color: #161821;
+    background-color: @white_b;
+    color: @background;
   }
 }
 
-#battery.charging {
-  color: #b4be82;
+/* #idle_inhibitor, */
+/* #pulseaudio, */
+/* #custom-openvpn, */
+/* #network, */
+/* #cpu, */
+/* #memory, */
+/* #temperature, */
+/* #backlight, */
+/* #battery, */
+/* #clock, */
+/* #tray { */
+/*   padding: 0 6px; */
+/*   margin: 0 3px; */
+/* } */
+
+#clock,
+#battery,
+#network,
+#custom-notification,
+#custom-player {
+  padding: 0px 10px;
+  margin: 0px 5px;
 }
 
-#battery.critical:not(.charging) {
-  background-color: #e98989;
+#clock {
+  margin-right: 10px;
+}
+
+#battery.warning:not(.charging) {
+  background: @red;
+  color: @white_b;
   animation-name: blink;
-  animation-duration: 1.0s;
+  animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-}
-
-#custom-player {
-  border-radius: 2px 0px 0px 2px;
-  margin-left: 10px;
 }

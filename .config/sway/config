@@ -12,7 +12,7 @@ set $menu wofi | xargs swaymsg exec --
 exec wlsunset -l 30.4 -L 104.0 -T 6500 -t 3500
 exec light -S 70
 exec --no-startup-id pipewire
-exec mako
+exec swaync
 exec playerctld daemon
 
 #my keybinds
@@ -20,6 +20,7 @@ exec playerctld daemon
 bindsym $mod+Ctrl+l exec ~/.config/sway/scripts/logout.sh
 bindsym $mod+Print exec grim ~/Pictures/Screenshots/$(date +'%H:%M_%y%m%d.png') && \
 exec notify-send -t 3000 'Screenshot saved.'
+bindsym $mod+n exec swaync-client -t -sw
 
 #set gtk theme
 
@@ -35,13 +36,12 @@ exec_always {
 #set colour
 
 #color class            border  backgr. text    indicator child_border
-client.focused          #a093c7 #161821 #d2d4de #84a0c6   #a093c7
-client.focused_inactive #6b7089 #161821 #d2d4de #84a0c6   #6b7089
-client.unfocused        #6b7089 #161821 #d2d4de #84a0c6   #6b7089
-client.urgent           #e27878 #161821 #d2d4de #84a0c6   #bf616a
-client.placeholder      #6b7089 #161821 #d2d4de #84a0c6   #6b7089
-client.background       #6b7089
-#2e3440
+client.focused          #82abbc #2a2f33 #bfddb2 #415c6d   #7fbbb3
+client.focused_inactive #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
+client.unfocused        #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
+client.urgent           #d76e6e #2a2f33 #bfddb2 #415c6d   #e68183
+client.placeholder      #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
+client.background       #3f464b #2a2f33
 
 #bind fn keys
 
@@ -60,7 +60,7 @@ bindsym XF86AudioPrev exec 'playerctl previous'
 
 #borders stuff
 
-default_border pixel 2
+default_border pixel 1
 #workspace_auto_back_and_forth yes
 force_display_urgency_hint 500 ms
 smart_borders no_gaps
@@ -164,5 +164,5 @@ bindsym $mod+0 scratchpad show
 
 bar swaybar_command waybar
 
-output * bg $(find ~/Pictures/Wallpapers/ -type f | shuf -n1) fill
+output * bg $(find ~/Pictures/Wallpapers/serenade/ -type f | shuf -n1) fill
 include /etc/sway/config.d/*

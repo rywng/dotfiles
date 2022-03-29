@@ -1,0 +1,159 @@
+/*
+ * vim: ft=less 
+ */
+
+@define-color border-color #7f868c;
+@define-color bg #2e3338;
+@define-color bg-trans rgba(46, 51, 56, 0.9);
+@define-color bg-hover #373d41;
+@define-color bg-focus #474f54;
+@define-color bg-selected #3f464b;
+@define-color fg #bfddb2;
+@define-color orange #e5a46b;
+@define-color blue #82abbc;
+
+.notification-row {
+  outline: none;
+}
+.notification-row:focus,
+.notification-row:hover {
+  background: @bg-hover;
+}
+
+.notification {
+  border-radius: 3px;
+  margin: 6px 12px;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+.notification-content {
+  background: transparent;
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.close-button {
+  background: black;
+  color: white;
+  text-shadow: none;
+  padding: 0 2px;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+.close-button:hover {
+  background: rgb(30, 30, 30);
+  transition: all 0.15s ease-in-out;
+}
+
+.notification-default-action,
+.notification-action {
+  padding: 4px;
+  margin: 0;
+  box-shadow: none;
+  background: @bg;
+  border: 1px solid @border-color;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: @bg-hover;
+}
+
+.notification-default-action {
+  border-radius: 3px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+  border-radius: 0px;
+  border-top: none;
+  border-right: none;
+}
+
+/* add bottom border radius to eliminate clipping */
+.notification-action:first-child {
+  border-bottom-left-radius: 10px;
+}
+.notification-action:last-child {
+  border-bottom-right-radius: 10px;
+  border-right: 1px solid @border-color;
+}
+
+.image {
+}
+
+.body-image {
+  margin-top: 6px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.summary {
+  color: @fg;
+  text-shadow: none;
+}
+
+.time {
+  color: @fg;
+  text-shadow: none;
+}
+
+.body {
+  background: transparent;
+  color: @fg;
+  text-shadow: none;
+}
+
+.top-action-title {
+  color: @fg;
+  text-shadow: none;
+}
+
+.control-center-clear-all {
+  color: @orange;
+  text-shadow: none;
+  background: @bg;
+  border: 1px solid @border-color;
+  box-shadow: none;
+  border-radius: 3px;
+}
+.control-center-clear-all:hover {
+  background: @bg-hover;
+}
+
+.control-center-dnd {
+  border-radius: 3px;
+  background: @bg;
+  border: 1px solid @border-color;
+  box-shadow: none;
+}
+
+.control-center-dnd:checked {
+  background: @blue;
+}
+.control-center-dnd slider {
+  border-radius: 3px;
+  background: @bg-hover;
+  border: 1px solid @border-color;
+}
+
+.control-center {
+  background: @bg-trans;
+	border-radius: 5px;
+	border: 1px solid @border-color;
+}
+.control-center-list {
+  background: @bg-trans;
+	border: 1px @border-color;
+	border-style: dashed solid hidden solid;
+}
+
+.floating-notifications {
+  background: transparent;
+}
