@@ -14,6 +14,7 @@
 
 .notification-row {
   outline: none;
+	background: transparent;
 }
 .notification-row:focus,
 .notification-row:hover {

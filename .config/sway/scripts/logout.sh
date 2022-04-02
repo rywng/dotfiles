@@ -8,7 +8,7 @@ if test "$choice" = lock ; then
     timeout 10 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     &
   idlepid=$!
-  swaylock -e -c 161821 --inside-color 00000003
+  swaylock -e -c 2a2f33 --inside-color 00000003
   kill $idlepid
   swaymsg "output * dpms on"
   light -S $bright

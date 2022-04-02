@@ -12,4 +12,4 @@ show_all=true
 print_command=true
 layer=overlay
 insensitive=true
-prompt=Search for Applications
+prompt=
