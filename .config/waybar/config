@@ -1,0 +1,88 @@
+{
+  "layer": "top",
+  "modules-left": [
+    "sway/workspaces"
+  ],
+  "fixed-center": false,
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "tray",
+    "custom/notification",
+    "custom/player",
+    "cpu",
+    "memory",
+    "network",
+    "battery",
+    "clock"
+  ],
+  "sway/window": {
+    "max-length": 50
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "cpu": {
+    "format": "  {load}"
+  },
+  "memory": {
+    "format": "  {used:0.1f}G / {total:0.1f}G"
+  },
+  "network": {
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
+    "format-linked": "  {ifname} (No IP)",
+    "format-disconnected": "  Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "clock": {
+    "format": "{:  %H:%M\t  %m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "  There is new notification<span foreground='red'><sup></sup></span>",
+      "none": "  No notifications",
+      "dnd-notification": "  There is notification<span foreground='red'><sup></sup></span>",
+      "dnd-none": "  DND is on"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/player": {
+    "format": "{icon} {}",
+    "format-icons": {
+      "Playing": " ",
+      "Paused": " "
+    },
+    "return-type": "json",
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{uc(playerName)}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "max-length": 35,
+    "on-click": "playerctl play-pause && sleep 0.2 && notify-send `playerctl status` -t 1000"
+  }
+}

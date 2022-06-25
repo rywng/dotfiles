@@ -1,0 +1,99 @@
+/*
+ * vim: ft=less 
+ */
+
+* {
+  border: none;
+  border-radius: 1;
+  font-size: 13px;
+  min-height: 0;
+}
+
+@import "serenade.css";
+
+window#waybar {
+  background: @background;
+  border-bottom: 1px solid @selection_background;
+}
+
+#workspaces {
+  margin: 5px 10px;
+}
+
+#workspaces button {
+  padding: 0 2px;
+  background: transparent;
+  color: @background_b;
+}
+
+#workspaces button.focused {
+  color: @foreground;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  color: @magenta;
+}
+
+#custom-player,
+#custom-notification,
+#memory,
+#cpu,
+#window {
+  color: @background_b;
+}
+
+#clock {
+  color: @magenta;
+}
+
+#battery {
+  color: @blue;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+@keyframes blink {
+  to {
+    color: @red;
+    background-color: transparent;
+  }
+}
+
+#battery.warning:not(.charging) {
+  color: @background;
+  background-color: red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#network.disconnected,
+#network.disabled {
+  color: @red;
+}
+
+#network.wifi {
+  color: @green;
+}
+
+#clock,
+#cpu,
+#memory,
+#battery,
+#network,
+#custom-notification,
+#tray,
+#custom-player {
+  padding: 0px 5px;
+  margin: 0px 5px;
+}
+
+#clock {
+  margin-left: 10px;
+  margin-right: 10px;
+}
