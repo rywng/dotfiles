@@ -1,4 +1,4 @@
-output * bg $(find ~/Pictures/Wallpapers/serenade/ -type f | shuf -n1) fill
+output * bg $(find ~/Pictures/Wallpapers/ -type f | shuf -n1) fill
 
 bar swaybar_command waybar
 
