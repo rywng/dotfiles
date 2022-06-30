@@ -4,12 +4,12 @@
 
 * {
   border: none;
-  border-radius: 1;
+  border-radius: 1px;
   font-size: 13px;
   min-height: 0;
 }
 
-@import "serenade.css";
+@import "serenade.less";
 
 window#waybar {
   background: @background;
