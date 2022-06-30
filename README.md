@@ -1,8 +1,20 @@
 # Dotfiles
 
-This is my dot files on a Gentoo Linux laptop, with SwayWM and pipewire.
+Linux desktop with serenade colorscheme, following the KISS philosophy.
 
-# Software that this dotfile includes
+# Screenshots
+
+![terminal](https://user-images.githubusercontent.com/72336775/176679848-a66143cb-0df8-4fd0-a567-66693c33741e.png)
+![blank](https://user-images.githubusercontent.com/72336775/176679629-c8da017a-2daf-4871-a34f-75bcd3738e28.png)
+
+# Installing
+
+I use [yadm](https://github.com/TheLocehiliosan/yadm) to manage dotfiles, the directory layout is unchanged.
+```bash
+yadm clone https://github.com/JuanCldCmt/dotfiles
+```
+
+# Software
 
 | Name | Description |
 |------|-------------|
@@ -13,7 +25,6 @@ This is my dot files on a Gentoo Linux laptop, with SwayWM and pipewire.
 |kitty|Terminal emulator|
 |zsh|Interactive Shell|
 |mpv|Video player|
-|tmux|Split terminal|
 |zathura|PDF viewer|
 
 # Depencencies
@@ -26,7 +37,3 @@ This is my dot files on a Gentoo Linux laptop, with SwayWM and pipewire.
 |wireplumber|media session management (remember to replace it in sway's config if using non-gentoo)|
 |playerctld|Control players|
 |grim|Take screenshots|
-
-# Screenshots
-
-![2206252110](https://user-images.githubusercontent.com/72336775/175775155-45624b81-2d73-4ad8-832d-6248aa8e8cdc.png)
