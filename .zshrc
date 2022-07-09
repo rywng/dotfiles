@@ -74,9 +74,11 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-export KEYTIMEOUT=1
+# pure config
+zstyle :prompt:pure:prompt:success color green
 
 #edit in vim
+export KEYTIMEOUT=1
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '' edit-command-line
