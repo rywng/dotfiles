@@ -98,15 +98,15 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 # Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$left move left 24px
+bindsym $mod+Shift+$down move down 24px
+bindsym $mod+Shift+$up move up 24px
+bindsym $mod+Shift+$right move right 24px
 # resize windows
-bindsym $mod+less resize shrink width 20px
-bindsym $mod+greater resize grow width 20px
-bindsym $mod+minus resize shrink height 20px
-bindsym $mod+plus resize grow height 20px
+bindsym $mod+less resize shrink width 24px
+bindsym $mod+greater resize grow width 24px
+bindsym $mod+minus resize shrink height 24px
+bindsym $mod+plus resize grow height 24px
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
