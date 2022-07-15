@@ -24,17 +24,20 @@
     "spacing": 10
   },
   "cpu": {
-    "format": "  {load}"
+    "format": "  {load}",
+    "format-alt": "  {usage}% @ {avg_frequency}GHz"
   },
   "memory": {
-    "format": "  {used:0.1f}G / {total:0.1f}G"
+    "format": "  {used:0.1f}G / {total:0.1f}G",
+    "format-alt": "  Swap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
   },
   "network": {
     "format-wifi": "  {essid} ({signalStrength}%)",
-    "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
-    "format-linked": "  {ifname} (No IP)",
+    "format-ethernet": "  {ifname}",
+    "format-linked": "  {ifname}",
     "format-disconnected": "  Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "  {ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr}"
   },
   "battery": {
     "states": {
@@ -45,7 +48,7 @@
     "format": "{icon} {capacity}%",
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
-    "format-alt": "{icon} {time}",
+    "format-alt": "{icon} ETA: {time}",
     "format-icons": [
       "",
       "",
@@ -56,16 +59,16 @@
   },
   "clock": {
     "format": "{:  %H:%M\t  %m-%d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "custom/notification": {
-    "tooltip": false,
+    "tooltip": true,
     "format": "{icon}",
     "format-icons": {
-      "notification": "  There is new notification<span foreground='red'><sup></sup></span>",
+      "notification": " <span foreground='red'><sup></sup></span> New notifications",
       "none": "  No notifications",
-      "dnd-notification": "  There is notification<span foreground='red'><sup></sup></span>",
-      "dnd-none": "  DND is on"
+      "dnd-notification": "  DND on",
+      "dnd-none": "  DND on"
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
@@ -75,14 +78,12 @@
     "escape": true
   },
   "custom/player": {
-    "format": "{icon} {}",
-    "format-icons": {
-      "Playing": " ",
-      "Paused": " "
-    },
+    "format": " {}",
     "return-type": "json",
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{uc(playerName)}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{uc(playerName)}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"class\": \"{{status}}\"}' -F",
     "max-length": 35,
-    "on-click": "playerctl play-pause && sleep 0.2 && notify-send `playerctl status` -t 1000"
+    "on-click-middle": "playerctl play-pause",
+    "on-click-right": "plaerctl next",
+    "on-click-left": "playerctl previous"
   }
 }
