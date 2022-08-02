@@ -78,7 +78,7 @@
     "escape": true
   },
   "custom/player": {
-    "format": " {}",
+    "format": "  {}",
     "return-type": "json",
     "exec": "playerctl -a metadata --format '{\"text\": \"{{uc(playerName)}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"class\": \"{{status}}\"}' -F",
     "max-length": 35,

@@ -51,8 +51,8 @@ client.background       #3f464b #2a2f33
 
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -p 1 -b 2 -a top -M 48 --border-color '#474f54F0' --background-color '#2a2f33F0' --bar-color '#bfddb2F0' --overflow-mode wrap --overflow-background-color '#2a2f33F0' --overflow-bar-color '#d76e6ef0' --overflow-border-color '#474f54F0'
-bindsym XF86AudioRaiseVolume exec amixer sset Master 2048+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
-bindsym XF86AudioLowerVolume exec amixer sset Master 2048- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
 bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
