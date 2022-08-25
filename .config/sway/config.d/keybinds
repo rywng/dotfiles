@@ -10,13 +10,11 @@ set $menu wofi | xargs swaymsg exec --
 
 #my keybinds
 
-bindsym $mod+Ctrl+l exec ~/.config/sway/scripts/logout.sh
 bindsym $mod+Print exec ~/.config/sway/scripts/grimshot-ui.sh
 bindsym $mod+m exec swaync-client -t -sw
 
 
 #bind fn keys
-
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -p 1 -b 2 -a top -M 48 --border-color '#474f54F0' --background-color '#2a2f33F0' --bar-color '#bfddb2F0' --overflow-mode wrap --overflow-background-color '#2a2f33F0' --overflow-bar-color '#d76e6ef0' --overflow-border-color '#474f54F0'
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob

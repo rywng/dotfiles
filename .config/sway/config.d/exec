@@ -7,4 +7,3 @@ exec gentoo-pipewire-launcher
 exec swaync
 exec playerctld daemon
 exec dbus-update-activation-environment --all
-

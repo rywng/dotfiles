@@ -1,7 +1,6 @@
 # vim: filetype=i3config
 
-#set gtk theme
-
+#set gtk theme and font
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
@@ -12,7 +11,6 @@ exec_always {
 }
 
 #set colour
-
 #color class            border  backgr. text    indicator child_border
 client.focused          #87c095 #2a2f33 #bfddb2 #415c6d   #bfddb2
 client.focused_inactive #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
