@@ -1,0 +1,10 @@
+# vim: filetype=i3config
+
+##starting userspace software
+exec wlsunset -l 30.4 -L 104.0 -T 6500 -t 3500
+exec light -S 70
+exec gentoo-pipewire-launcher
+exec swaync
+exec playerctld daemon
+exec dbus-update-activation-environment --all
+

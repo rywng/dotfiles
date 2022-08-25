@@ -1,0 +1,3 @@
+# vim: filetype=i3config
+
+include ~/.config/sway/config.d/custom.d/*

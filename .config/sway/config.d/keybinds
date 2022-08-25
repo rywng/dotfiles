@@ -1,0 +1,113 @@
+# vim: filetype=i3config
+
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term kitty -1
+set $menu wofi | xargs swaymsg exec --
+
+#my keybinds
+
+bindsym $mod+Ctrl+l exec ~/.config/sway/scripts/logout.sh
+bindsym $mod+Print exec ~/.config/sway/scripts/grimshot-ui.sh
+bindsym $mod+m exec swaync-client -t -sw
+
+
+#bind fn keys
+
+bindsym XF86AudioMicMute exec amixer set Capture toggle
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -p 1 -b 2 -a top -M 48 --border-color '#474f54F0' --background-color '#2a2f33F0' --bar-color '#bfddb2F0' --overflow-mode wrap --overflow-background-color '#2a2f33F0' --overflow-bar-color '#d76e6ef0' --overflow-border-color '#474f54F0'
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
+bindsym XF86AudioMute exec  pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/sway/scripts/getmute.sh  > $SWAYSOCK.wob
+bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+
+bindsym XF86AudioPause exec 'playerctl pause'
+bindsym XF86AudioPlay exec 'playerctl play'
+bindsym XF86AudioStop exec 'playerctl stop'
+bindsym XF86AudioNext exec 'playerctl next'
+bindsym XF86AudioPrev exec 'playerctl previous'
+
+# sticky window
+bindsym $mod+Shift+s floating toggle ; sticky toggle ; resize set 800 600 ; move position 55ppt 5ppt
+
+# Start a terminal
+bindsym $mod+Return exec $term
+bindsym $mod+n exec $term
+# Kill focused window
+bindsym $mod+w kill
+# Start your launcher
+bindsym $mod+Shift+Return exec $menu
+bindsym $mod+Shift+n exec $menu
+
+floating_modifier $mod normal
+
+bindsym $mod+Ctrl+r reload
+bindsym $mod+Ctrl+q exit
+
+# Change fcitx IME
+bindsym $mod+Ctrl+space exec fcitx5-remote -t
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left 24px
+bindsym $mod+Shift+$down move down 24px
+bindsym $mod+Shift+$up move up 24px
+bindsym $mod+Shift+$right move right 24px
+# resize windows
+bindsym $mod+less resize shrink width 24px
+bindsym $mod+greater resize grow width 24px
+bindsym $mod+minus resize shrink height 24px
+bindsym $mod+plus resize grow height 24px
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+#
+# Layout stuff:
+#
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+c splith
+bindsym $mod+v splitv
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+# Move focus to the parent or child container
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+0 move scratchpad
+bindsym $mod+0 scratchpad show
