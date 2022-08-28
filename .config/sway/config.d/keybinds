@@ -10,9 +10,15 @@ set $menu wofi | xargs swaymsg exec --
 
 #my keybinds
 
+# screenshot
 bindsym $mod+Print exec ~/.config/sway/scripts/grimshot-ui.sh
+bindsym $mod+Ctrl+s exec ~/.config/sway/scripts/grimshot-ui.sh
+# notification client
 bindsym $mod+m exec swaync-client -t -sw
-
+# Logout
+bindsym $mod+Ctrl+l exec ~/.config/sway/scripts/logout.sh
+# Change fcitx IME
+bindsym $mod+Ctrl+space exec fcitx5-remote -t
 
 #bind fn keys
 bindsym XF86AudioMicMute exec amixer set Capture toggle
@@ -46,8 +52,6 @@ floating_modifier $mod normal
 bindsym $mod+Ctrl+r reload
 bindsym $mod+Ctrl+q exit
 
-# Change fcitx IME
-bindsym $mod+Ctrl+space exec fcitx5-remote -t
 
 # Move your focus around
 bindsym $mod+$left focus left
