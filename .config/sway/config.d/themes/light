@@ -1,0 +1,23 @@
+# vim: filetype=i3config
+
+#set gtk theme and font
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    gsettings set $gnome-schema cursor-theme 'Adwaita'
+    gsettings set $gnome-schema font-name 'ibm-plex 12'
+    gsettings set org.gtk.Settings.FileChooser startup-mode cwd
+}
+
+#set colour
+#color class            border  backgr. text    indicator child_border
+client.focused          #415c6d #323d43 #fdf6e3 #415c6d   #415c6d
+client.focused_inactive #e4e1cd #323d43 #fdf6e3 #415c6d   #e4e1cd
+client.unfocused        #e4e1cd #323d43 #fdf6e3 #415c6d   #e4e1cd
+client.urgent           #e68183 #323d43 #fdf6e3 #415c6d   #e68183
+client.placeholder      #e4e1cd #323d43 #fdf6e3 #415c6d   #e4e1cd
+client.background       #e4e1cd #323d43
+
+#borders stuff
+default_border pixel 1

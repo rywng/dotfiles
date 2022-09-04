@@ -5,12 +5,12 @@
 * {
   border: none;
   border-radius: 1px;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 13px;
   min-height: 0;
 }
 
-@import "serenade.less";
+@import "light.less";
 
 window#waybar {
   background: @background;
