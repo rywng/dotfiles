@@ -18,9 +18,9 @@ sed -i $command ~/.config/kitty/kitty.conf
 
 # more settings
 if [ $scheme = "light" ]; then
-  kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/light.conf"
+  kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/light.conf" &
 else
-  kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf"
+  kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
 fi
 
 sway reload
