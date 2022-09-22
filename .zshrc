@@ -1,4 +1,3 @@
-
 cat ~/.config/splash 2> /dev/null || true
 echo
 echo '\033[0;35m   /w '$(awk -F "=" '/^NAME/ {print $2}' 2> /dev/null < /etc/os-release || uname -o)
@@ -53,7 +52,7 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %S%F{green}At %p%f: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**'
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
 zstyle ':completion:*' max-errors 16 numeric
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' original false
