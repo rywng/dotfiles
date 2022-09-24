@@ -2,15 +2,7 @@
  * vim: ft=less 
  */
 
-@define-color border-color #7f868c;
-@define-color bg #2e3338;
-@define-color bg-trans rgba(46, 51, 56, 0.9);
-@define-color bg-hover #373d41;
-@define-color bg-focus #474f54;
-@define-color bg-selected #3f464b;
-@define-color fg #bfddb2;
-@define-color orange #e5a46b;
-@define-color blue #82abbc;
+@import "light.less";
 
 .notification-row {
   outline: none;

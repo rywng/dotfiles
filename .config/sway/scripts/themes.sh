@@ -11,10 +11,14 @@ else
   exit 1
 fi
 
-sed -i $command ~/.config/sway/config.d/theme
-sed -i $command ~/.config/sway/config.d/display
-sed -i $command ~/.config/waybar/style.css
 sed -i $command ~/.config/kitty/kitty.conf
+sed -i $command ~/.config/sway/config.d/display
+sed -i $command ~/.config/sway/config.d/theme
+sed -i $command ~/.config/swaync/style.css
+sed -i $command ~/.config/waybar/style.css
+sed -i $command ~/.config/wofi/config
+
+swaync-client -rs &
 
 # more settings
 if [ $scheme = "light" ]; then
