@@ -24,7 +24,7 @@ bindsym $mod+Ctrl+t exec ~/.config/sway/scripts/themes.sh
 
 #bind fn keys
 bindsym XF86AudioMicMute exec amixer set Capture toggle
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -p 1 -b 2 -a top -M 48 --border-color '#474f54F0' --background-color '#2a2f33F0' --bar-color '#bfddb2F0' --overflow-mode wrap --overflow-background-color '#2a2f33F0' --overflow-bar-color '#d76e6ef0' --overflow-border-color '#474f54F0'
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
 bindsym XF86AudioMute exec  pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/sway/scripts/getmute.sh  > $SWAYSOCK.wob

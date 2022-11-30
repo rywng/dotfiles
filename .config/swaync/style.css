@@ -2,7 +2,7 @@
  * vim: ft=less 
  */
 
-@import "light.less";
+@import "dark.less";
 
 .notification-row {
   outline: none;

@@ -1,7 +1,7 @@
 # vim: filetype=i3config
 
 # wallpaper
-output * bg $(find ~/Pictures/Wallpapers/light -type f | shuf -n1) fill
+output * bg $(find ~/Pictures/Wallpapers/dark -type f | shuf -n1) fill
 
 # laptop output mode
 set $laptop eDP-1
