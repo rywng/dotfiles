@@ -12,12 +12,12 @@ exec_always {
 
 #set colour
 #color class            border  backgr. text    indicator child_border
-client.focused          #87c095 #2a2f33 #bfddb2 #415c6d   #bfddb2
-client.focused_inactive #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
-client.unfocused        #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
-client.urgent           #d76e6e #2a2f33 #bfddb2 #415c6d   #e68183
-client.placeholder      #3f464b #2a2f33 #bfddb2 #415c6d   #3f464b
-client.background       #3f464b #2a2f33
+client.focused          #fbf1c7 #282828 #ebdbb2 #928374   #fbf1c7
+client.focused_inactive #928374 #282828 #ebdbb2 #928374   #928374
+client.unfocused        #928374 #282828 #ebdbb2 #928374   #928374
+client.urgent           #cc241d #282828 #ebdbb2 #928374   #cc241d
+client.placeholder      #928374 #282828 #ebdbb2 #928374   #928374
+client.background       #928374 #282828
 
 #borders stuff
 default_border pixel 1

@@ -23,8 +23,10 @@ swaync-client -rs &
 # more settings
 if [ $scheme = "light" ]; then
   kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/light.conf" &
+  mv ~/.config/zathura/zathurarc.light ~/.config/zathura/zathurarc
 else
   kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
+  mv ~/.config/zathura/zathurarc.dark ~/.config/zathura/zathurarc
 fi
 
 sway reload

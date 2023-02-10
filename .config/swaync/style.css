@@ -106,7 +106,7 @@
 }
 
 .control-center-clear-all {
-  color: @orange;
+  color: @warning;
   text-shadow: none;
   background: @bg;
   border: 1px solid @border-color;
@@ -125,7 +125,7 @@
 }
 
 .control-center-dnd:checked {
-  background: @blue;
+  background: @primary;
 }
 .control-center-dnd slider {
   border-radius: 3px;

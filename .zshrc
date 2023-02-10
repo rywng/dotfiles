@@ -109,6 +109,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 #settings for software
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
 export GPG_TTY=$(tty) # fixes gpg
+export JDK_HOME=/usr/lib/jvm/openjdk-17
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 #colored output
 export MANWIDTH=${MANWIDTH:-78}
