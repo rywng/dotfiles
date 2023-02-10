@@ -1,6 +1,6 @@
 # Dotfiles
 
-Linux desktop with serenade colorscheme, following the KISS philosophy.
+Linux desktop with gruvbox colorscheme, following the KISS philosophy.
 
 # Screenshots
 
