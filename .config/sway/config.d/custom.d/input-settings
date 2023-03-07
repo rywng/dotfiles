@@ -1,0 +1,36 @@
+# vim: filetype=i3config
+
+# swap caps and ctrl on Thinkpad keyboard
+input 1:1:AT_Translated_Set_2_keyboard {
+  xkb_options "ctrl:swapcaps"
+}
+
+# dugod keyboard and 2.4G variant
+input 12136:130:Hoksi_Technology_DURGOD_Taurus_K320 {
+  # swap caps with ctrl, and lalt with lwin
+  xkb_options "ctrl:swapcaps, altwin:swap_lalt_lwin"
+}
+
+input 12136:32832:Hoksi_Technology_DURGOD_Infinite_Link {
+  xkb_options "ctrl:swapcaps, altwin:swap_lalt_lwin"
+}
+
+input type:mouse {
+  accel_profile flat
+}
+
+# always disable touchpad
+input type:touchpad {
+  events disabled
+#  accel_profile adaptive
+#  pointer_accel -0.3
+#  natural_scroll enabled
+#  tap enabled
+#  dwt enabled
+#  events disabled_on_external_mouse
+}
+
+input 2:14:ETPS/2_Elantech_TrackPoint {
+  accel_profile adaptive
+  pointer_accel 0
+}

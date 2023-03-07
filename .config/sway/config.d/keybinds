@@ -8,7 +8,7 @@ set $right l
 set $term kitty -1
 set $menu wofi | xargs swaymsg exec --
 
-#my keybinds
+# my keybinds
 
 # screenshot
 bindsym $mod+Print exec ~/.config/sway/scripts/grimshot-ui.sh
@@ -22,7 +22,18 @@ bindsym $mod+Ctrl+space exec fcitx5-remote -t
 # Change theme
 bindsym $mod+Ctrl+t exec ~/.config/sway/scripts/themes.sh
 
-#bind fn keys
+# bind gesture
+bindgesture swipe:3:right workspace prev
+bindgesture swipe:3:left workspace next
+
+# use mouse wheel to switch workspaces
+bindsym --whole-window $mod+button4 workspace prev
+bindsym --whole-window $mod+button5 workspace next
+# side buttons
+bindsym --whole-window $mod+button8 workspace prev
+bindsym --whole-window $mod+button9 workspace next
+
+# bind fn keys
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob

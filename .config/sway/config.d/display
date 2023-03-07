@@ -1,8 +1,5 @@
 # vim: filetype=i3config
 
-# wallpaper
-output * bg $(find -L ~/Pictures/Wallpapers/dark -type f | shuf -n1) fill
-
 # laptop output mode
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable

@@ -1,0 +1,8 @@
+output DP-2 mode 2560x1440@74.968Hz
+output DP-2 subpixel rgb
+output * adaptive_sync on
+output eDP-1 subpixel rgb
+
+# TV at home
+output 'Unknown HUAWEI INC 0x00000000' mode 3840x2160@60.000Hz
+output 'Unknown HUAWEI INC 0x00000000' scale 2

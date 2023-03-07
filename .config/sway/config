@@ -1,1 +1,5 @@
-include ~/.config/sway/config.d/*
+include ~/.config/sway/config.d/exec
+include ~/.config/sway/config.d/display
+include ~/.config/sway/config.d/theme
+include ~/.config/sway/config.d/keybinds
+include ~/.config/sway/config.d/custom

@@ -12,7 +12,6 @@ else
 fi
 
 sed -i $command ~/.config/kitty/kitty.conf
-sed -i $command ~/.config/sway/config.d/display
 sed -i $command ~/.config/sway/config.d/theme
 sed -i $command ~/.config/swaync/style.css
 sed -i $command ~/.config/waybar/style.css
@@ -24,9 +23,17 @@ swaync-client -rs &
 if [ $scheme = "light" ]; then
   kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/light.conf" &
   mv ~/.config/zathura/zathurarc.light ~/.config/zathura/zathurarc
+  
+  # set wallpaper location
+  unlink ~/.config/sway/Wallpaper
+  ln -s ~/Pictures/Wallpapers/light ~/.config/sway/Wallpaper
 else
   kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
   mv ~/.config/zathura/zathurarc.dark ~/.config/zathura/zathurarc
+
+  # set dark wallpaper
+  unlink ~/.config/sway/Wallpaper
+  ln -s ~/Pictures/Wallpapers/dark ~/.config/sway/Wallpaper
 fi
 
 sway reload

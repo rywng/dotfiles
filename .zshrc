@@ -22,8 +22,8 @@ zinit ice lucid wait
 zinit light juancldcmt/colorize
 zinit ice lucid wait
 zinit light juancldcmt/shortify.zsh
-zinit ice lucid wait
-zinit light juancldcmt/direnv.zsh
+# zinit ice lucid wait
+# zinit light juancldcmt/direnv.zsh
 
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
