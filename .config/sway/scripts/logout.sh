@@ -5,12 +5,12 @@ if test "$choice" = lock ; then
   bright=`light`
   swayidle -w \
     timeout 5 "light -S 1" resume "light -S $bright" \
-    timeout 10 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    timeout 10 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     &
   idlepid=$!
   swaylock -e -c 282828 --inside-color 00000003
   kill $idlepid
-  swaymsg "output * dpms on"
+  swaymsg "output * power on"
   light -S $bright
   return 0
 fi
