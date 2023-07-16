@@ -2,10 +2,8 @@ scheme=$(echo -e "light\ndark" | wofi -d -p "󰔎 Select color scheme")
 
 # simply subsitude dark and light
 if [ $scheme = "light" ]; then
-    notify-send "Toggling light color scheme"
     command="s/dark/light/"
 elif [ $scheme = "dark" ]; then
-    notify-send "Toggling dark color scheme"
     command="s/light/dark/"
 else
     exit 1
