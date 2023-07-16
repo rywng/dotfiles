@@ -1,4 +1,4 @@
-scheme=$(echo -e "light\ndark" | wofi -d -p "Select color scheme")
+scheme=$(echo -e "light\ndark" | wofi -d -p "󰔎 Select color scheme")
 
 # simply subsitude dark and light
 if [ $scheme = "light" ]; then

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=`echo -e "suspend\nshutdown\npoweroff\nreboot\nlock\nhibernate" | wofi -d -Oalphabetical`
+choice=`echo -e "suspend\nshutdown\npoweroff\nreboot\nlock" | wofi -d --prompt "󰚥 Choose power option" -Oalphabetical`
 if test "$choice" = lock ; then
   bright=`light`
   swayidle -w \

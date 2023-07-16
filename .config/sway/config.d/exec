@@ -3,7 +3,7 @@
 ##starting userspace software
 # exec_always sh -c ~/.config/sway/scripts/update-wallpaper.sh
 exec mkfifo /tmp/kitty
-exec wlsunset -l 30.4 -L 104.0 -T 6500 -t 3500
+exec wlsunset -s 19:00 -S 07:00
 exec light -S 70
 # exec gentoo-pipewire-launcher
 exec swaync
