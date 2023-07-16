@@ -28,15 +28,15 @@
     "format-alt": "  {usage}% @ {avg_frequency}GHz"
   },
   "memory": {
-    "format": "  {used:0.1f}G / {total:0.1f}G",
-    "format-alt": "  Swap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
+    "format": "󰍛  {used:0.1f}G / {total:0.1f}G",
+    "format-alt": "󰓡  Swap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
   },
   "network": {
     "format-wifi": "  {essid} ({signalStrength}%)",
-    "format-ethernet": "  {ifname}",
+    "format-ethernet": "󰈀  {ifname}",
     "format-linked": "  {ifname}",
-    "format-disconnected": "  Disconnected",
-    "format-alt": "  {ifname}: {ipaddr}/{cidr}",
+    "format-disconnected": "󰌙  Disconnected",
+    "format-alt": "󰩟  {ifname}: {ipaddr}/{cidr}",
     "tooltip-format": "{ifname} via {gwaddr}"
   },
   "battery": {
@@ -46,7 +46,7 @@
       "critical": 5
     },
     "format": "{icon} {capacity}%",
-    "format-charging": "  {capacity}%",
+    "format-charging": "🗲  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon} ETA: {time}",
     "format-icons": [
@@ -58,7 +58,7 @@
     ]
   },
   "clock": {
-    "format": "{:  %H:%M\t  %m-%d}",
+    "format": "{:󰅐  %H:%M\t  %m-%d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "custom/notification": {
@@ -78,7 +78,7 @@
     "escape": true
   },
   "custom/player": {
-    "format": "  {}",
+    "format": "󰎈  {}",
     "return-type": "json",
     "exec": "playerctl -a metadata --format '{\"text\": \"{{uc(playerName)}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"class\": \"{{status}}\"}' -F",
     "max-length": 35,

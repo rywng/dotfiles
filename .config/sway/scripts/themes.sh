@@ -1,4 +1,4 @@
-scheme=$(echo "light\ndark" | wofi -d -p "Select color scheme")
+scheme=$(echo -e "light\ndark" | wofi -d -p "Select color scheme")
 
 # simply subsitude dark and light
 if [ $scheme = "light" ]; then
@@ -26,14 +26,14 @@ if [ $scheme = "light" ]; then
   
   # set wallpaper location
   unlink ~/.config/sway/Wallpaper
-  ln -s ~/Pictures/Wallpapers/light ~/.config/sway/Wallpaper
+  ln -s ~/Pictures/wall/sway/light ~/.config/sway/Wallpaper
 else
   kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
   mv ~/.config/zathura/zathurarc.dark ~/.config/zathura/zathurarc
 
   # set dark wallpaper
   unlink ~/.config/sway/Wallpaper
-  ln -s ~/Pictures/Wallpapers/dark ~/.config/sway/Wallpaper
+  ln -s ~/Pictures/wall/sway/dark ~/.config/sway/Wallpaper
 fi
 
 sway reload

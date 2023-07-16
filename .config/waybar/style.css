@@ -5,8 +5,8 @@
 * {
   border: none;
   border-radius: 1px;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 13px;
+  font-family: "IBM Plex Sans", "Symbols Nerd Font" ,sans-serif;
+  font-size: 14px;
   min-height: 0;
 }
 
