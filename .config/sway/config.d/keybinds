@@ -6,7 +6,7 @@ set $down j
 set $up k
 set $right l
 set $term kitty -1
-set $menu wofi | xargs swaymsg exec --
+set $menu wofi
 
 # my keybinds
 

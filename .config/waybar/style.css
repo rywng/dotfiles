@@ -27,7 +27,7 @@ window#waybar {
   color: @background_b;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   color: @foreground;
   font-weight: bold;
 }

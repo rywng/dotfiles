@@ -1,0 +1,3 @@
+[submodule ".config/mpv/default-shader-pack"]
+	path = .config/mpv/default-shader-pack
+	url = https://github.com/iwalton3/default-shader-pack.git
