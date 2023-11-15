@@ -18,8 +18,13 @@
     "clock"
   ],
   "hyprland/workspaces": {
-     "on-scroll-up": "hyprctl dispatch workspace e+1",
-     "on-scroll-down": "hyprctl dispatch workspace e-1"
+     "on-scroll-up": "hyprctl dispatch workspace e-1",
+     "on-scroll-down": "hyprctl dispatch workspace e+1",
+     "show_special": true,
+     "on-click": "activate",
+     "persistent_workspaces": {
+        "9": ["HDMI-A-1"] 
+    }
   },
   "hyprland/window": {
     "max-length": 50,

@@ -27,6 +27,11 @@ window#waybar {
   color: @background_b;
 }
 
+#workspaces button.visible {
+  color: @foreground;
+  font-weight: bold;
+}
+
 #workspaces button.active {
   color: @foreground;
   font-weight: bold;

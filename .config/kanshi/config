@@ -1,9 +1,0 @@
-profile docked {
-	output eDP-1 disable
-	output "XMI Redmi 27 NU 3948622WH08F4" mode 3840x2160@60Hz position 2560,0 transform 270 scale 1.5
-	output "Lectron Company Ltd LECOO M2412HL GG30A137" mode 2560x1440@74.96800Hz position 0,0
-}
-
-profile mobile {
-	output eDP-1 enable
-}
