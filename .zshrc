@@ -3,30 +3,30 @@ echo
 echo '\033[0;35m   /w '$(awk -F "=" '/^NAME/ {print $2}' 2> /dev/null < /etc/os-release || uname -o)
 echo '\033[0;34m    @ '$HOST
 
-#Install zinit if no zinit is present
+# Install zinit if no zinit is present
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-	mkdir -p "$(dirname $ZINIT_HOME)"
-	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-	print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-		print -P "%F{160}▓▒░ The clone has failed.%f%b"
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 source "$ZINIT_HOME/zinit.zsh"
 
-zinit ice lucid wait
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit ice lucid wait
-zinit light agkozak/zsh-z
-zinit ice lucid wait
-zinit light juancldcmt/colorize
-zinit ice lucid wait
-zinit light juancldcmt/shortify.zsh
-# zinit ice lucid wait
-# zinit light juancldcmt/direnv.zsh
+# Zinit packages
 
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
+zinit wait lucid for \
+    zdharma-continuum/fast-syntax-highlighting \
+    agkozak/zsh-z \
+    zpm-zsh/colorize \
+    juancldcmt/shortify.zsh
+
+zinit ice as"command" from"gh-r" \
+    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+    atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+
 zinit light zsh-users/zsh-autosuggestions
 zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-history-substring-search
@@ -34,10 +34,6 @@ zinit light zsh-users/zsh-completions
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load LS_COLORS if not present
-test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
-
 
 # The following lines were added by compinstall
 
@@ -76,9 +72,6 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-# pure config
-zstyle :prompt:pure:prompt:success color green
-
 #edit in vim
 export KEYTIMEOUT=1
 autoload edit-command-line
@@ -112,11 +105,13 @@ export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=
 export GPG_TTY=$(tty) # fixes gpg
 export JDK_HOME=/usr/lib/jvm/openjdk-17
 export _JAVA_AWT_WM_NONREPARENTING=1
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 
 #colored output
 export MANWIDTH=${MANWIDTH:-78}
+test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
 export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB\\%.."
-export LESS="-RSM~"
+export LESS="--use-color -RSM~"
 
 #local path
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
