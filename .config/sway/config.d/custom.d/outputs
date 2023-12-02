@@ -1,0 +1,24 @@
+# 75hz monitor
+output 'Lectron Company Ltd LECOO M2412HL GG30A137' mode 2560x1440@74.968Hz
+output 'Lectron Company Ltd LECOO M2412HL GG30A137' subpixel rgb
+# output 'Lectron Company Ltd LECOO M2412HL GG30A137' max_render_time 5
+# output 'Lectron Company Ltd LECOO M2412HL GG30A137' render_bit_depth 10
+
+output * adaptive_sync on
+
+# laptop screen
+output 'Thermotrex Corporation TL160ADMP03-0 Unknown' subpixel rgb
+# output 'Thermotrex Corporation TL160ADMP03-0 Unknown' mode 2560x1600@60.000Hz
+# output 'Thermotrex Corporation TL160ADMP03-0 Unknown' max_render_time 5
+output 'Thermotrex Corporation TL160ADMP03-0 Unknown' mode 2560x1600@240.000Hz
+output 'Thermotrex Corporation TL160ADMP03-0 Unknown' max_render_time 8
+# output 'Thermotrex Corporation TL160ADMP03-0 Unknown' render_bit_depth 10
+
+# TV at home
+output 'Unknown HUAWEI INC 0x00000000' mode 3840x2160@60.000Hz
+output 'Unknown HUAWEI INC 0x00000000' scale 2
+
+# lab  screen
+output "XMI Redmi 27 NU 3948622WH08F4" transform 90
+# output "XMI Redmi 27 NU 3948622WH08F4" max_render_time 5
+# output "XMI Redmi 27 NU 3948622WH08F4" subpixel rgb

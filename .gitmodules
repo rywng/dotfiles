@@ -1,3 +1,6 @@
 [submodule ".config/mpv/default-shader-pack"]
 	path = .config/mpv/default-shader-pack
 	url = https://github.com/iwalton3/default-shader-pack.git
+[submodule ".config/hypr/plugins/hy3"]
+	path = .config/hypr/plugins/hy3
+	url = https://github.com/outfoxxed/hy3.git

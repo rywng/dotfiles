@@ -3,3 +3,5 @@ include ~/.config/sway/config.d/theme
 include ~/.config/sway/config.d/keybinds
 include ~/.config/sway/config.d/custom
 include ~/.config/sway/config.d/exec
+
+exec kitty

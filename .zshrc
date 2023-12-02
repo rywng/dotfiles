@@ -109,8 +109,9 @@ export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 
 #colored output
 export MANWIDTH=${MANWIDTH:-78}
+test -e /bin/nvim && export MANPAGER='nvim +Man!' || \
+    export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB\\%.."
 test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
-export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB\\%.."
 export LESS="--use-color -RSM~"
 
 #local path
