@@ -16,16 +16,15 @@ source "$ZINIT_HOME/zinit.zsh"
 
 # Zinit packages
 
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+
 zinit wait lucid for \
     zdharma-continuum/fast-syntax-highlighting \
     agkozak/zsh-z \
     zpm-zsh/colorize \
-    juancldcmt/shortify.zsh
-
-zinit ice as"command" from"gh-r" \
-    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-    atpull"%atclone" src"init.zsh"
-zinit light starship/starship
+    juancldcmt/shortify.zsh \
+    juancldcmt/kitty-zsh
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light hlissner/zsh-autopair
@@ -71,6 +70,10 @@ setopt autocd extendedglob nomatch notify auto_pushd
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+# Pure prompt
+zstyle ':prompt:pure:git:stash' show yes
+zstyle ':prompt:pure:prompt:success' color default
 
 #edit in vim
 export KEYTIMEOUT=1
