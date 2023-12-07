@@ -22,6 +22,7 @@ zinit light sindresorhus/pure
 zinit wait lucid for \
     zdharma-continuum/fast-syntax-highlighting \
     agkozak/zsh-z \
+    zpm-zsh/colors \
     zpm-zsh/colorize \
     juancldcmt/shortify.zsh \
     juancldcmt/kitty-zsh
@@ -30,6 +31,15 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-completions
+
+# Software
+zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
+
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+    pick"direnv" src="zhook.zsh" for \
+        direnv/direnv
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -112,10 +122,7 @@ export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 
 #colored output
 export MANWIDTH=${MANWIDTH:-78}
-test -e /bin/nvim && export MANPAGER='nvim +Man!' || \
-    export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB\\%.."
 test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
-export LESS="--use-color -RSM~"
 
 #local path
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"

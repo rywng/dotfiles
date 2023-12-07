@@ -29,8 +29,8 @@ if test "$choice" = lock ; then
     idlepid=$!
 
     # swaylock -e -c 282828 --inside-color 00000003
-    swaylock -S --effect-blur "12x12" --effect-greyscale --effect-vignette 0.5:0.5 --inside-color 00000000 \
-        -e --ring-color 00000000 --line-uses-inside --indicator --clock --text-color 689d6a
+    swaylock -S --effect-blur "12x12" --effect-greyscale --effect-vignette 0.5:0.5 --inside-color 28282860 \
+        -e --ring-color 00000000 --line-color 00000000 --indicator --clock --text-color ebdbb2
 
     kill $idlepid
 
@@ -39,5 +39,5 @@ if test "$choice" = lock ; then
     hyprctl dispatch exec waybar
     light -S $bright
 elif test -n "$choice"; then
-    loginctl $choice
+    systemctl $choice
 fi

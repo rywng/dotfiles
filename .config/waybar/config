@@ -91,7 +91,7 @@
     "format": "󰎈  {}",
     "return-type": "json",
     "exec": "playerctl -a metadata --format '{\"text\": \"{{uc(playerName)}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"class\": \"{{status}}\"}' -F",
-    "max-length": 35,
+    "max-length": 50,
     "on-click-middle": "playerctl play-pause",
     "on-click-right": "plaerctl next",
     "on-click-left": "playerctl previous"
