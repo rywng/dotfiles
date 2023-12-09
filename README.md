@@ -2,6 +2,10 @@
 
 Linux desktop with gruvbox colorscheme, following the KISS philosophy.
 
+## TODO
+
+- [ ] Use [zim](https://github.com/zimfw/zimfw) 
+
 # Screenshots
 
 ![terminal](https://user-images.githubusercontent.com/72336775/176679848-a66143cb-0df8-4fd0-a567-66693c33741e.png)

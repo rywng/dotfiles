@@ -27,7 +27,9 @@ zinit wait lucid for \
     juancldcmt/shortify.zsh \
     juancldcmt/kitty-zsh
 
+zinit ice wait lucid atinit"bindkey '' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
+
 zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-completions
@@ -44,6 +46,7 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description '%F{green}Specify%f: %F{cyan}%d%f'
@@ -78,7 +81,7 @@ HISTSIZE=8192
 SAVEHIST=8192
 setopt autocd extendedglob nomatch notify auto_pushd
 unsetopt beep
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # Pure prompt
@@ -86,10 +89,9 @@ zstyle ':prompt:pure:git:stash' show yes
 zstyle ':prompt:pure:prompt:success' color default
 
 #edit in vim
-export KEYTIMEOUT=1
 autoload edit-command-line
 zle -N edit-command-line
-bindkey '' edit-command-line
+bindkey '' edit-command-line
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -104,10 +106,9 @@ bindkey '' history-substring-search-down
 
 bindkey ' ' magic-space
 
-bindkey '' autosuggest-execute
-
 #config location
 export GOPATH=$HOME/.cache/go
+export CARGO_HOME=$HOME/.cache/cargo
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
 export XDG_CACHE_HOME=$HOME/.cache
@@ -116,13 +117,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 #settings for software
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
 export GPG_TTY=$(tty) # fixes gpg
-export JDK_HOME=/usr/lib/jvm/openjdk-17
-export _JAVA_AWT_WM_NONREPARENTING=1
-export HISTORY_SUBSTRING_SEARCH_FUZZY=1
-
-#colored output
 export MANWIDTH=${MANWIDTH:-78}
-test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 
 #local path
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
