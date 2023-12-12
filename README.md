@@ -5,6 +5,7 @@ Linux desktop with gruvbox colorscheme, following the KISS philosophy.
 ## TODO
 
 - [ ] Use [zim](https://github.com/zimfw/zimfw) 
+- [ ] Update screenshots (It's using serenade instead of gruvbox)
 
 # Screenshots
 
