@@ -30,8 +30,8 @@ zinit wait lucid for \
 zinit ice wait lucid atinit"bindkey '' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
-zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-history-substring-search
+zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-completions
 
 # Software
@@ -117,8 +117,13 @@ export XDG_CONFIG_HOME=$HOME/.config
 #settings for software
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
 export GPG_TTY=$(tty) # fixes gpg
-export MANWIDTH=${MANWIDTH:-78}
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
+export MANWIDTH=${MANWIDTH:-78}
+export MANROFFOPT="-c"
+export BAT_THEME="ansi"
+
+# bat pager
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 #local path
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
