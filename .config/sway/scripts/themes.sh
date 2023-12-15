@@ -46,4 +46,4 @@ else
     ln -s ~/Pictures/wall/sway/dark ~/.config/sway/Wallpaper
 fi
 
-sway reload
+hyprctl reload

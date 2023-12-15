@@ -23,7 +23,9 @@ if test "$choice" = lock ; then
     bright=`light`
 
     swayidle -w \
-        timeout 5 "light -S 1" resume "light -S $bright" &
+        timeout 5 "light -S 1" resume "light -S $bright" \
+        timeout $sleep_time 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
+        &
     idlepid=$!
 
     # swaylock -e -c 282828 --inside-color 00000003
