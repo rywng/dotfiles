@@ -91,9 +91,13 @@ zstyle ':prompt:pure:git:stash' show yes
 zstyle ':prompt:pure:prompt:success' color default
 
 #edit in vim
-autoload edit-command-line
+autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '' edit-command-line
+
+# better CTRL-w
+autoload -Uz select-word-style
+select-word-style bash
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -125,7 +129,7 @@ export MANROFFOPT="-c"
 export BAT_THEME="ansi"
 
 #local path
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin}"
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support

@@ -12,9 +12,9 @@ choice=$(echo -e "suspend\nshutdown\npoweroff\nreboot\nlock" | wofi -d --prompt 
 
 
 if test "$choice" = lock ; then
-    # sleep less when power on
+    # don't sleep when power on
     if acpi -a | grep -q on; then
-        sleep_time=3600
+        sleep_time=86400
     else
         sleep_time=10
     fi
