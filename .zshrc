@@ -126,7 +126,7 @@ export GPG_TTY=$(tty) # fixes gpg
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export MANWIDTH=${MANWIDTH:-78}
 export MANROFFOPT="-c"
-export BAT_THEME="ansi"
+export BAT_THEME="base16"
 
 #local path
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin}"
