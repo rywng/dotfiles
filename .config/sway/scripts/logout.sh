@@ -27,7 +27,11 @@ if test "$choice" = lock ; then
         timeout $sleep_time 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
         &
     idlepid=$!
-    swaylock -e -c 282828 --inside-color 00000003
+
+    # swaylock -e -c 282828 --inside-color 00000003
+    swaylock -S --effect-blur "12x12" --effect-greyscale --effect-vignette 0.5:0.5 --inside-color 28282860 \
+        -e --ring-color 00000000 --line-color 00000000 --indicator --clock --text-color ebdbb2
+
     kill $idlepid
     swaymsg "output * power on"
     light -S $bright

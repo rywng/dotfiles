@@ -129,7 +129,7 @@ export MANROFFOPT="-c"
 export BAT_THEME="base16"
 
 #local path
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin}"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support

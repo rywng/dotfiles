@@ -1,11 +1,11 @@
 {
   "layer": "top",
   "modules-left": [
-    "hyprland/workspaces"
+    "sway/workspaces"
   ],
   "fixed-center": false,
   "modules-center": [
-    "hyprland/window"
+    "sway/window"
   ],
   "modules-right": [
     "tray",
@@ -17,16 +17,14 @@
     "battery",
     "clock"
   ],
-  "hyprland/workspaces": {
-     "on-scroll-up": "hyprctl dispatch workspace e-1",
-     "on-scroll-down": "hyprctl dispatch workspace e+1",
+  "sway/workspaces": {
      "show_special": true,
      "on-click": "activate",
      "persistent_workspaces": {
         "9": ["HDMI-A-1"] 
     }
   },
-  "hyprland/window": {
+  "sway/window": {
     "max-length": 50,
     "separate-outputs": true
   },
