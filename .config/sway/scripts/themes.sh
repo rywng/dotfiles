@@ -10,7 +10,7 @@ else
 fi
 
 sed -i $command ~/.config/kitty/kitty.conf
-sed -i $command ~/.config/sway/config.d/theme
+sed -i $command ~/.config/sway/conf.d/theme
 sed -i $command ~/.config/swaync/style.css
 sed -i $command ~/.config/waybar/style.css
 sed -i $command ~/.config/wofi/config

@@ -135,3 +135,6 @@ export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 #ccache support
 export USE_CCACHE=1
 export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
+
+# ssh-agent
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket

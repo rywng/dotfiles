@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Modified from sway's locking script
 
@@ -8,7 +8,8 @@ if [[ ! $(which swayidle 2> /dev/null) ]]; then
     exit 1
 fi
 
-choice=$(echo -e "suspend\nshutdown\npoweroff\nreboot\nlock" | wofi -d --prompt "󰚥 Choose power option" -Oalphabetical)
+choices=("suspend" "shutdown" "poweroff" "reboot" "lock")
+choice=$(printf "%s\n" "${choices[@]}" | wofi -d --prompt "󰚥 Choose power option" -Oalphabetical )
 
 
 if test "$choice" = lock ; then
