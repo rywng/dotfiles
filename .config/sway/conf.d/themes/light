@@ -23,4 +23,4 @@ client.background       #ebdbb2 #fbf1c7
 #borders stuff
 default_border pixel 1
 
-output * bg #fbf1c7 solid_color
+output * bg #f9f5d7 solid_color
