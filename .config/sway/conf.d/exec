@@ -5,7 +5,6 @@
 exec mkfifo /tmp/kitty
 exec wlsunset -s 19:00 -S 07:00 -d 1800
 exec light -S 70
-# exec gentoo-pipewire-launcher
-# exec swaync
 exec playerctld daemon
-# exec dbus-update-activation-environment --all
+
+include /usr/local/etc/sway/config.d/*

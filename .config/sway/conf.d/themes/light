@@ -5,7 +5,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema color-scheme 'prefer-light'
     gsettings set $gnome-schema gtk-theme 'Adwaita'
-    gsettings set $gnome-schema icon-theme 'Papirus-Light'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme 'Adwaita'
     gsettings set $gnome-schema font-name 'ibm-plex 12'
     gsettings set org.gtk.Settings.FileChooser startup-mode cwd
@@ -22,3 +22,5 @@ client.background       #ebdbb2 #fbf1c7
 
 #borders stuff
 default_border pixel 1
+
+output * bg #fbf1c7 solid_color

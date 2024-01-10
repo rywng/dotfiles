@@ -7,7 +7,7 @@ output 'Lectron Company Ltd LECOO M2412HL GG30A137' subpixel rgb
 # output 'Lectron Company Ltd LECOO M2412HL GG30A137' max_render_time 5
 
 # lab  screen
-output "XMI Redmi 27 NU 3948622WH08F4" mode --custom 3840x2160@35.000Hz
+output "XMI Redmi 27 NU 3948622WH08F4" mode --custom 2560x1440@60Hz
 output "XMI Redmi 27 NU 3948622WH08F4" scale 1.5
 output "XMI Redmi 27 NU 3948622WH08F4" transform 90
 output "XMI Redmi 27 NU 3948622WH08F4" pos 2560 0

@@ -37,8 +37,10 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
 
 # Software
-zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
-zinit light sharkdp/bat
+if  ! command -v bat &> /dev/null ; then
+	zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+	zinit light sharkdp/bat
+fi
 
 zinit from"gh-r" as"program" mv"direnv* -> direnv" \
     atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \

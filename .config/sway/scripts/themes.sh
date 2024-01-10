@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 scheme=$(echo -e "light\ndark" | wofi -d -p "󰔎 Select color scheme")
 
 # simply subsitude dark and light
@@ -29,8 +30,8 @@ if [ $scheme = "light" ]; then
     # gtk2
     cp ~/.config/gtk-2.0/light.conf ~/.gtkrc-2.0
     # set wallpaper location
-    unlink ~/.config/sway/Wallpaper
-    ln -s ~/Pictures/wall/sway/light ~/.config/sway/Wallpaper
+    # unlink ~/.config/sway/Wallpaper
+    # ln -s ~/Pictures/wall/sway/light ~/.config/sway/Wallpaper
 else
     # kitty config
     kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
@@ -42,8 +43,9 @@ else
     # gtk2
     cp ~/.config/gtk-2.0/dark.conf ~/.gtkrc-2.0
     # set dark wallpaper
-    unlink ~/.config/sway/Wallpaper
-    ln -s ~/Pictures/wall/sway/dark ~/.config/sway/Wallpaper
+    # unlink ~/.config/sway/Wallpaper
+    # ln -s ~/Pictures/wall/sway/dark ~/.config/sway/Wallpaper
 fi
 
-hyprctl reload
+swaymsg reload
+systemctl --user restart waybar.service
