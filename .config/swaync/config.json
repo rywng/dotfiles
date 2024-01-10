@@ -11,15 +11,9 @@
   "timeout-critical": 0,
   "notification-window-width": 512,
   "keyboard-shortcuts": true,
-  "image-visibility": "always",
-  "transition-time": 200,
+  "image-visibility": "when-available",
   "hide-on-clear": true,
   "hide-on-action": true,
   "script-fail-notify": true,
-  "scripts": {
-    "example-script": {
-      "exec": "echo 'Do something...'",
-      "urgency": "Normal"
-    }
-  }
+  "widgets": ["title", "dnd", "mpris"]
 }

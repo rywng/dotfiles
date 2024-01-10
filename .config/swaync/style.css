@@ -4,9 +4,14 @@
 
 @import "dark.less";
 
+* {
+  color: @fg;
+  text-shadow: none;
+}
+
 .notification-row {
   outline: none;
-	background: transparent;
+  background: transparent;
 }
 .notification-row:focus,
 .notification-row:hover {
@@ -16,7 +21,7 @@
 .notification {
   border-radius: 2px;
   margin: 6px 12px;
-  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
   padding: 0;
 }
 
@@ -100,11 +105,6 @@
   text-shadow: none;
 }
 
-.top-action-title {
-  color: @fg;
-  text-shadow: none;
-}
-
 .control-center-clear-all {
   color: @warning;
   text-shadow: none;
@@ -135,13 +135,13 @@
 
 .control-center {
   background: @bg-trans;
-	border-radius: 5px;
-	border: 1px solid @border-color;
+  border-radius: 5px;
+  border: 1px solid @border-color;
 }
 .control-center-list {
   background: @bg-trans;
-	border: 1px @border-color;
-	border-style: dashed solid hidden solid;
+  border: 1px @border-color;
+  border-style: dashed solid hidden solid;
 }
 
 .floating-notifications {

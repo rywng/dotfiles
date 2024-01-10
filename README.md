@@ -2,6 +2,11 @@
 
 Linux desktop with gruvbox colorscheme, following the KISS philosophy.
 
+## TODO
+
+- [ ] Use [zim](https://github.com/zimfw/zimfw) 
+- [ ] Update screenshots (It's using serenade instead of gruvbox)
+
 # Screenshots
 
 ![terminal](https://user-images.githubusercontent.com/72336775/176679848-a66143cb-0df8-4fd0-a567-66693c33741e.png)
@@ -10,6 +15,7 @@ Linux desktop with gruvbox colorscheme, following the KISS philosophy.
 # Installing
 
 I use [yadm](https://github.com/TheLocehiliosan/yadm) to manage dotfiles, the directory layout is unchanged.
+
 ```bash
 yadm clone https://github.com/JuanCldCmt/dotfiles
 ```
@@ -18,7 +24,7 @@ yadm clone https://github.com/JuanCldCmt/dotfiles
 
 | Name | Description |
 |------|-------------|
-|swayWM|Tiling WM|
+|hyprland|wayland WM with better nvidia support|
 |waybar|Custom bar for sway|
 |swayNC|Notification center|
 |wofi|App launcher|
@@ -36,4 +42,3 @@ yadm clone https://github.com/JuanCldCmt/dotfiles
 |pipewire|Sound deamon|
 |wireplumber|media session management (remember to replace it in sway's config if using non-gentoo)|
 |playerctld|Control players|
-|grim|Take screenshots|

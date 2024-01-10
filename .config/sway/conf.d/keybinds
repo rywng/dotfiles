@@ -1,4 +1,4 @@
-# vim: filetype=i3config
+# vim: filetype=swayconfig
 
 set $mod Mod4
 set $left h
@@ -6,13 +6,13 @@ set $down j
 set $up k
 set $right l
 set $term kitty -1
-set $menu wofi | xargs swaymsg exec --
+set $menu wofi
 
 # my keybinds
 
 # screenshot
-bindsym $mod+Print exec ~/.config/sway/scripts/grimshot-ui.sh
-bindsym $mod+Ctrl+s exec ~/.config/sway/scripts/grimshot-ui.sh
+bindsym $mod+Print exec grimshot --cursor copy area
+bindsym $mod+Shift+s exec grimshot --cursor copy area
 # notification client
 bindsym $mod+m exec swaync-client -t -sw
 # Logout
@@ -36,11 +36,13 @@ bindsym --whole-window $mod+button9 workspace next
 # bind fn keys
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+ && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
 bindsym XF86AudioMute exec  pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/sway/scripts/getmute.sh  > $SWAYSOCK.wob
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+bindsym XF86KbdBrightnessUp exec light -s sysfs/leds/asus::kbd_backlight -S 67
+bindsym XF86KbdBrightnessDown exec light -s sysfs/leds/asus::kbd_backlight -S 0
 
 bindsym XF86AudioPause exec 'playerctl pause'
 bindsym XF86AudioPlay exec 'playerctl play'
@@ -49,7 +51,7 @@ bindsym XF86AudioNext exec 'playerctl next'
 bindsym XF86AudioPrev exec 'playerctl previous'
 
 # sticky window
-bindsym $mod+Shift+s floating toggle ; sticky toggle ; resize set 800 600 ; move position 55ppt 5ppt
+bindsym $mod+Ctrl+s floating toggle ; sticky toggle ; resize set 800 600 ; move position 55ppt 5ppt
 
 # Start a terminal
 bindsym $mod+Return exec $term

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Modified from sway's locking script
 
@@ -8,14 +8,13 @@ if [[ ! $(which swayidle 2> /dev/null) ]]; then
     exit 1
 fi
 
-choices=("suspend" "shutdown" "poweroff" "reboot" "lock")
-choice=$(printf "%s\n" "${choices[@]}" | wofi -d --prompt "󰚥 Choose power option" -Oalphabetical )
+choice=$(echo -e "suspend\nshutdown\npoweroff\nreboot\nlock" | wofi -d --prompt "󰚥 Choose power option" -Oalphabetical)
 
 
 if test "$choice" = lock ; then
-    # sleep less when power on
+    # don't sleep when power on
     if acpi -a | grep -q on; then
-        sleep_time=3600
+        sleep_time=86400
     else
         sleep_time=10
     fi
@@ -25,7 +24,7 @@ if test "$choice" = lock ; then
 
     swayidle -w \
         timeout 5 "light -S 1" resume "light -S $bright" \
-        timeout $sleep_time 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        timeout $sleep_time 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
         &
     idlepid=$!
 
@@ -34,7 +33,10 @@ if test "$choice" = lock ; then
         -e --ring-color 00000000 --line-color 00000000 --indicator --clock --text-color ebdbb2
 
     kill $idlepid
-    swaymsg "output * power on"
+
+    pkill waybar
+    hyprctl dispatch dpms on
+    hyprctl dispatch exec waybar
     light -S $bright
 elif test -n "$choice"; then
     systemctl $choice

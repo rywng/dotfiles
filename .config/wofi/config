@@ -1,13 +1,11 @@
 # style
-style=/home/juan/.config/wofi/dark.css
+style=/home/ryan/.config/wofi/dark.css
 width=600
 height=500
 
 # opts
 show=drun
-always_parse_args=true
-show_all=true
-print_command=true
+fork=true
 layer=overlay
 insensitive=true
 location=center

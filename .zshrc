@@ -3,41 +3,54 @@ echo
 echo '\033[0;35m   /w '$(awk -F "=" '/^NAME/ {print $2}' 2> /dev/null < /etc/os-release || uname -o)
 echo '\033[0;34m    @ '$HOST
 
-#Install zinit if no zinit is present
+# Install zinit if no zinit is present
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-	mkdir -p "$(dirname $ZINIT_HOME)"
-	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-	print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-		print -P "%F{160}▓▒░ The clone has failed.%f%b"
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 source "$ZINIT_HOME/zinit.zsh"
 
-zinit ice lucid wait
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit ice lucid wait
-zinit light agkozak/zsh-z
-zinit ice lucid wait
-zinit light juancldcmt/colorize
-zinit ice lucid wait
-zinit light juancldcmt/shortify.zsh
-# zinit ice lucid wait
-# zinit light juancldcmt/direnv.zsh
+# Zinit packages
 
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
+
+zinit wait lucid for \
+    zdharma-continuum/fast-syntax-highlighting \
+    agkozak/zsh-z \
+    zpm-zsh/colors \
+    zpm-zsh/colorize \
+    juancldcmt/shortify.zsh \
+    juancldcmt/kitty-zsh
+
+zinit ice wait lucid atinit"bindkey '' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
-zinit light hlissner/zsh-autopair
+
+zinit ice wait lucid
+zinit load hlissner/zsh-autopair
+
+zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
+
+# Software
+if  ! command -v bat &> /dev/null ; then
+	zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+	zinit light sharkdp/bat
+fi
+
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+    pick"direnv" src="zhook.zsh" for \
+    direnv/direnv
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load LS_COLORS if not present
 test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
-
-
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description '%F{green}Specify%f: %F{cyan}%d%f'
@@ -72,17 +85,21 @@ HISTSIZE=8192
 SAVEHIST=8192
 setopt autocd extendedglob nomatch notify auto_pushd
 unsetopt beep
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
 
-# pure config
-zstyle :prompt:pure:prompt:success color green
+# Pure prompt
+zstyle ':prompt:pure:git:stash' show yes
+zstyle ':prompt:pure:prompt:success' color default
 
 #edit in vim
-export KEYTIMEOUT=1
-autoload edit-command-line
+autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '' edit-command-line
+bindkey '' edit-command-line
+
+# better CTRL-w
+autoload -Uz select-word-style
+select-word-style bash
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -97,10 +114,9 @@ bindkey '' history-substring-search-down
 
 bindkey ' ' magic-space
 
-bindkey '' autosuggest-execute
-
 #config location
 export GOPATH=$HOME/.cache/go
+export CARGO_HOME=$HOME/.cache/cargo
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
 export XDG_CACHE_HOME=$HOME/.cache
@@ -109,18 +125,18 @@ export XDG_CONFIG_HOME=$HOME/.config
 #settings for software
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
 export GPG_TTY=$(tty) # fixes gpg
-export JDK_HOME=/usr/lib/jvm/openjdk-17
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-#colored output
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export MANWIDTH=${MANWIDTH:-78}
-export MANLESS="Manual\ \$MAN_PN\ ?ltline\ %lt?L/%L.:byte\ %bB?s/%s..?\:?pB\ %pB\\%.."
-export LESS="-RSM~"
+export MANROFFOPT="-c"
+export BAT_THEME="base16"
 
 #local path
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 
 #ccache support
 export USE_CCACHE=1
 export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
+
+# ssh-agent
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
