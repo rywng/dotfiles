@@ -39,10 +39,10 @@ exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+ && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $SWAYSOCK.wob
 bindsym XF86AudioMute exec  pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/sway/scripts/getmute.sh  > $SWAYSOCK.wob
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && xbacklight -get | cut -d'.' -f1 > $SWAYSOCK.wob
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && xbacklight -get | cut -d'.' -f1 > $SWAYSOCK.wob
-bindsym XF86KbdBrightnessUp exec xbacklight -ctrl asus::kbd_backlight -inc 33
-bindsym XF86KbdBrightnessDown exec xbacklight -ctrl asus::kbd_backlight -dec 33
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && xbacklight -get > $SWAYSOCK.wob
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && xbacklight -get > $SWAYSOCK.wob
+bindsym XF86KbdBrightnessUp exec xbacklight -ctrl asus::kbd_backlight -inc 25
+bindsym XF86KbdBrightnessDown exec xbacklight -ctrl asus::kbd_backlight -dec 25
 
 bindsym XF86AudioPause exec 'playerctl pause'
 bindsym XF86AudioPlay exec 'playerctl play'
