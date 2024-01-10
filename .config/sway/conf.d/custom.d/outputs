@@ -7,13 +7,13 @@ output 'Lectron Company Ltd LECOO M2412HL GG30A137' subpixel rgb
 # output 'Lectron Company Ltd LECOO M2412HL GG30A137' max_render_time 5
 
 # lab  screen
-output "XMI Redmi 27 NU 3948622WH08F4" mode --custom 2560x1440@60Hz
-output "XMI Redmi 27 NU 3948622WH08F4" scale 1.5
+# output "XMI Redmi 27 NU 3948622WH08F4" mode --custom 2560x1440@60Hz
+# output "XMI Redmi 27 NU 3948622WH08F4" scale 1.5
 output "XMI Redmi 27 NU 3948622WH08F4" transform 90
 output "XMI Redmi 27 NU 3948622WH08F4" pos 2560 0
 output "XMI Redmi 27 NU 3948622WH08F4" subpixel rgb
-output "XMI Redmi 27 NU 3948622WH08F4" max_render_time 3
-output "XMI Redmi 27 NU 3948622WH08F4" render_bit_depth 10
+# output "XMI Redmi 27 NU 3948622WH08F4" max_render_time 3
+# output "XMI Redmi 27 NU 3948622WH08F4" render_bit_depth 10
 
 # laptop screen
 output 'Thermotrex Corporation TL160ADMP03-0 Unknown' subpixel rgb
