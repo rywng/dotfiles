@@ -1,4 +1,0 @@
-# vim: filetype=swayconfig
-
-include /usr/local/etc/sway/config.d/*
-exec /usr/libexec/polkit-gnome-authentication-agent-1
