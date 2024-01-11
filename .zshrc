@@ -24,8 +24,8 @@ zinit wait lucid for \
     agkozak/zsh-z \
     zpm-zsh/colors \
     zpm-zsh/colorize \
-    juancldcmt/shortify.zsh \
-    juancldcmt/kitty-zsh
+    rywng/shortify.zsh \
+    rywng/kitty-zsh
 
 zinit ice wait lucid atinit"bindkey '' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
