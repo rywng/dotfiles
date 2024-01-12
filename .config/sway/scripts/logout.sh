@@ -15,7 +15,7 @@ choice=$(printf "%s\n" "${choices[@]}" | wofi -d --prompt "󰚥 Choose power opt
 if test "$choice" = lock ; then
     # sleep less when power on
     if acpi -a | grep -q on; then
-        sleep_time=3600
+        sleep_time=3600000
     else
         sleep_time=10
     fi
