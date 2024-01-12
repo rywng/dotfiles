@@ -23,28 +23,26 @@ if [ $scheme = "light" ]; then
     # kitty config
     kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/light.conf" &
     # zathura
-    mv ~/.config/zathura/zathurarc.light ~/.config/zathura/zathurarc
+    cp ~/.config/zathura/zathurarc.light ~/.config/zathura/zathurarc
     # qt5ct and qt6ct
     cp ~/.config/qt5ct/light.conf ~/.config/qt5ct/qt5ct.conf
     cp ~/.config/qt6ct/light.conf ~/.config/qt6ct/qt6ct.conf
     # gtk2
     cp ~/.config/gtk-2.0/light.conf ~/.gtkrc-2.0
-    # set wallpaper location
-    # unlink ~/.config/sway/Wallpaper
-    # ln -s ~/Pictures/wall/sway/light ~/.config/sway/Wallpaper
+    # gtk3
+    cp ~/.config/gtk-3.0/light.ini ~/.config/gtk-3.0/settings.ini
 else
     # kitty config
     kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
     # zathura
-    mv ~/.config/zathura/zathurarc.dark ~/.config/zathura/zathurarc
+    cp ~/.config/zathura/zathurarc.dark ~/.config/zathura/zathurarc
     # qt5ct and qt6ct
     cp ~/.config/qt5ct/dark.conf ~/.config/qt5ct/qt5ct.conf
     cp ~/.config/qt6ct/dark.conf ~/.config/qt6ct/qt6ct.conf
     # gtk2
     cp ~/.config/gtk-2.0/dark.conf ~/.gtkrc-2.0
-    # set dark wallpaper
-    # unlink ~/.config/sway/Wallpaper
-    # ln -s ~/Pictures/wall/sway/dark ~/.config/sway/Wallpaper
+    # gtk3
+    cp ~/.config/gtk-3.0/dark.ini ~/.config/gtk-3.0/settings.ini
 fi
 
 swaymsg reload
