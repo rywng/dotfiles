@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-scheme=$(echo -e "light\ndark" | wofi -d -p "󰔎 Select color scheme")
+scheme=$(echo -e "light\ndark" | fuzzel -d -p "󰔎 : ")
 
 # simply subsitude dark and light
 if [ $scheme = "light" ]; then
@@ -14,7 +14,6 @@ sed -i $command ~/.config/kitty/kitty.conf
 sed -i $command ~/.config/sway/conf.d/theme
 sed -i $command ~/.config/swaync/style.css
 sed -i $command ~/.config/waybar/style.css
-sed -i $command ~/.config/wofi/config
 
 swaync-client -rs &
 
@@ -22,6 +21,8 @@ swaync-client -rs &
 if [ $scheme = "light" ]; then
     # kitty config
     kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/light.conf" &
+    # fuzzel
+    cp ~/.config/fuzzel/fuzzel-light.ini ~/.config/fuzzel/fuzzel.ini
     # zathura
     cp ~/.config/zathura/zathurarc.light ~/.config/zathura/zathurarc
     # qt5ct and qt6ct
@@ -36,6 +37,8 @@ else
     kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
     # zathura
     cp ~/.config/zathura/zathurarc.dark ~/.config/zathura/zathurarc
+    # fuzzel
+    cp ~/.config/fuzzel/fuzzel-dark.ini ~/.config/fuzzel/fuzzel.ini
     # qt5ct and qt6ct
     cp ~/.config/qt5ct/dark.conf ~/.config/qt5ct/qt5ct.conf
     cp ~/.config/qt6ct/dark.conf ~/.config/qt6ct/qt6ct.conf

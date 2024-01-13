@@ -2,6 +2,7 @@
 style=/home/ryan/.config/wofi/dark.css
 width=600
 height=500
+cache_file=/home/ryan/.cache/wofi
 
 # opts
 show=drun

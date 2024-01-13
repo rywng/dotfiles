@@ -113,29 +113,28 @@ bindkey '' history-substring-search-down
 
 bindkey ' ' magic-space
 
-#config location
-export GOPATH=$HOME/.cache/go
+# config & cache location
 export CARGO_HOME=$HOME/.cache/cargo
+export GOPATH=$HOME/.cache/go
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
+export ZSHZ_DATA=$HOME/.cache/z
 
-#settings for software
+# settings for software
+export BAT_THEME="base16"
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
 export GPG_TTY=$(tty) # fixes gpg
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
-export MANWIDTH=${MANWIDTH:-78}
 export MANROFFOPT="-c"
-export BAT_THEME="base16"
-
-#local path
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
-export MANPATH="${MANPATH}:${HOME}/.local/share/man"
-
-#ccache support
-export USE_CCACHE=1
-export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
-
-# ssh-agent
+export MANWIDTH=${MANWIDTH:-78}
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+# local path
+export MANPATH="${MANPATH}:${HOME}/.local/share/man"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
+
+# ccache support
+export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
+export USE_CCACHE=1

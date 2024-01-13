@@ -54,7 +54,7 @@
       "critical": 5
     },
     "format": "{icon} {capacity}%",
-    "format-charging": "🗲  {capacity}%",
+    "format-charging": "󰉁  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon} ETA: {time}",
     "format-icons": [
@@ -90,8 +90,6 @@
     "return-type": "json",
     "exec": "playerctl -a metadata --format '{\"text\": \"{{uc(playerName)}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"class\": \"{{status}}\"}' -F",
     "max-length": 35,
-    "on-click-middle": "playerctl play-pause",
-    "on-click-right": "plaerctl next",
-    "on-click-left": "playerctl previous"
+    "on-click": "playerctl play-pause"
   }
 }

@@ -8,7 +8,7 @@ if [[ ! $(which swayidle 2> /dev/null) ]]; then
     exit 1
 fi
 
-choice=$(echo -e "suspend\nshutdown\npoweroff\nreboot\nlock" | wofi -d --prompt "󰚥 Choose power option" -Oalphabetical)
+choice=$(echo -e "suspend\nshutdown\npoweroff\nreboot\nlock" | fuzzel -d --prompt "󰚥: ")
 
 
 if test "$choice" = lock ; then

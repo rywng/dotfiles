@@ -9,13 +9,13 @@ if [[ ! $(which swayidle 2> /dev/null) ]]; then
 fi
 
 choices=("suspend" "shutdown" "poweroff" "reboot" "lock")
-choice=$(printf "%s\n" "${choices[@]}" | wofi -d --prompt "󰚥 Choose power option" -Oalphabetical )
+choice=$(printf "%s\n" "${choices[@]}" | fuzzel -d --prompt "󰚥: ")
 
 
 if test "$choice" = lock ; then
     # sleep less when power on
     if acpi -a | grep -q on; then
-        sleep_time=3600000
+        sleep_time=3600
     else
         sleep_time=10
     fi
