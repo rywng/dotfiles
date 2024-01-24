@@ -1,5 +1,5 @@
 [screencast]
-max_fps=60
+max_fps=120
 exec_before=swaynag -m "Screen sharing enabled" -e bottom --background b16286 --text dbdbb2 --button-background b16286 --button-text ebdbb2 --border ebdbb2 --button-border-size 2
 ; exec_after=enable_notifications.sh
 chooser_type=simple

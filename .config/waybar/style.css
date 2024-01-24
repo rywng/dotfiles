@@ -5,7 +5,7 @@
 * {
   border: none;
   border-radius: 1px;
-  font-family: "IBM Plex Sans", "Symbols Nerd Font" ,sans-serif;
+  font-family: "IBM Plex Sans", "Symbols Nerd Font", sans-serif;
   font-size: 14px;
   min-height: 0;
 }
@@ -17,7 +17,8 @@ window#waybar {
   border-bottom: 1px solid @selection_background;
 }
 
-#workspaces {
+#workspaces,
+#window {
   margin: 5px 10px;
 }
 
