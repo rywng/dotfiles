@@ -6,3 +6,4 @@ exec mkfifo /tmp/kitty
 exec wlsunset -s 19:00 -S 07:00 -d 1800
 exec xbacklight -set 70
 exec playerctld daemon
+exec easyeffects --gapplication-service
