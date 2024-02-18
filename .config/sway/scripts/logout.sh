@@ -8,7 +8,7 @@ if [[ ! $(which swayidle 2> /dev/null) ]]; then
     exit 1
 fi
 
-choices=("suspend" "shutdown" "poweroff" "reboot" "lock")
+choices=("suspend" "poweroff" "reboot" "lock")
 choice=$(printf "%s\n" "${choices[@]}" | fuzzel -d --prompt "󰚥: ")
 
 

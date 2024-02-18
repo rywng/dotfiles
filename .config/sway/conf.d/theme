@@ -12,3 +12,5 @@ force_display_urgency_hint 500 ms
 smart_borders no_gaps
 
 seat * xcursor_theme Adwaita
+
+seat * hide_cursor 10000
