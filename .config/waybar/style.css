@@ -3,9 +3,7 @@
  */
 
 * {
-  border: none;
-  border-radius: 1px;
-  font-family: "IBM Plex Sans", "Symbols Nerd Font", sans-serif;
+  font-family: "IBM Plex Mono", "Symbols Nerd Font", sans-serif;
   font-size: 14px;
   min-height: 0;
 }
@@ -22,8 +20,12 @@ window#waybar {
   margin: 5px 10px;
 }
 
+#window {
+  font-weight: bold;
+}
+
 #workspaces button {
-  padding: 0 2px;
+  padding: 0 0.1em;
   background: transparent;
   color: @background_b;
 }
@@ -51,11 +53,11 @@ window#waybar {
 }
 
 #clock {
-  color: @cyan;
+  color: @foreground;
 }
 
 #battery {
-  color: @blue;
+  color: @cyan;
 }
 
 #battery.charging {
@@ -70,22 +72,25 @@ window#waybar {
 }
 
 #battery.warning:not(.charging) {
-  color: @background;
-  background-color: red;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
   animation-direction: alternate;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-name: blink;
+  animation-timing-function: linear;
+  background-color: red;
+  color: @background;
+  font-weight: bold;
 }
 
 #network.disconnected,
 #network.disabled {
   color: @red;
+  font-weight: bold;
 }
 
 #network.wifi {
   color: @green;
+  font-style: italic;
 }
 
 #clock,

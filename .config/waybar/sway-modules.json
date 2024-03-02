@@ -1,0 +1,72 @@
+{
+  "sway/workspaces": {
+    "show_special": true,
+    "on-click": "activate"
+  },
+  "sway/window": {
+    "max-length": 50
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "cpu": {
+    "format": " {load}",
+    "format-alt": " {usage}% @ {avg_frequency}GHz"
+  },
+  "memory": {
+    "format": "󰍛 {used:0.1f}G / {total:0.1f}G",
+    "format-alt": "󰓡 Swap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-linked": " {ifname}",
+    "format-disconnected": "󰌙 Disconnected",
+    "format-alt": "󰩟 {ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr}"
+  },
+  "battery": {
+    "states": {
+      "good": 75,
+      "warning": 15,
+      "critical": 5
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰉁 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} ETA: {time}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "format": "{:󰅐 %H:%M   %m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": " <span foreground='red'><sup></sup></span> <span weight=\"bold\">Unread</span>",
+      "none": "  <span style=\"italic\">Empty</span>",
+      "dnd-notification": "  <span style=\"italic\">DND on</span>",
+      "dnd-none": "  <span style=\"italic\">DND on</span>"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/player": {
+    "format": "{icon} <span style=\"italic\">{}</span>",
+    "format-icons": {
+      "Playing": "󰎈 ",
+      "Paused": "󰏤 "
+    },
+    "return-type": "json",
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(album)}}\", \"class\": \"{{status}}\", \"alt\": \"{{status}}\" }' -F",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "pavucontrol"
+  }
+}
