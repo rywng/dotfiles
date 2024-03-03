@@ -54,6 +54,7 @@ window#waybar {
 
 #clock {
   color: @foreground;
+  font-weight: bold;
 }
 
 #battery {
