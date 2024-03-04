@@ -42,9 +42,8 @@ if  ! command -v bat &> /dev/null ; then
 	zinit light sharkdp/bat
 fi
 
-zinit as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
-    atpull'%atclone' pick"direnv" src"zhook.zsh" for \
-        direnv/direnv
+zinit ice from"gh-r" as"program" mv"direnv* -> direnv"
+zinit light direnv/direnv
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
