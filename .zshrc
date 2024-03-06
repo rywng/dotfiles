@@ -26,13 +26,11 @@ zinit wait lucid for \
     zpm-zsh/colorize \
     rywng/shortify.zsh
 
-zinit ice wait lucid atinit"bindkey '' autosuggest-execute" atload'_zsh_autosuggest_start'
+zinit ice wait lucid atinit"bindkey '^ ' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
-zinit ice wait lucid
-zinit load hlissner/zsh-autopair
-
 zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-history-substring-search
 
 # Software
 if  ! command -v bat &> /dev/null ; then
@@ -40,13 +38,16 @@ if  ! command -v bat &> /dev/null ; then
 	zinit light sharkdp/bat
 fi
 
-zinit ice from"gh-r" as"program" mv"direnv* -> direnv"
-zinit light direnv/direnv
+if ! command -v direnv &> /dev/null; then
+	zinit ice from"gh-r" as"program" mv"direnv* -> direnv"
+	zinit light direnv/direnv
+fi
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description '%F{green}Specify%f: %F{cyan}%d%f'
@@ -57,20 +58,19 @@ zstyle ':completion:*' file-sort name
 zstyle ':completion:*' format '%F{green}Completing%f %F{yellow}%d%f'
 zstyle ':completion:*' glob 1
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' ignore-parents parent pwd ..
+zstyle ':completion:*' ignore-parents parent pwd .. directory
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-prompt %S%F{green}At %p%f: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
-zstyle ':completion:*' max-errors 16 numeric
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+zstyle ':completion:*' max-errors 2
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' original false
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' prompt '%F{green}Completing%f, with %F{red}%e%f errors'
-zstyle ':completion:*' select-prompt %S%F{green}Scrolling%f active: current selection at %F{blue}%p%f%s
-zstyle ':completion:*' substitute 1
-zstyle ':completion:*' use-compctl true
-zstyle :compinstall filename ~/.zshrc
+zstyle ':completion:*' select-prompt '%S%F{green}Scrolling%f active: current selection at %F{blue}%p%f%s'
+zstyle ':completion:*' substitute 0
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename '/home/ryan/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -79,8 +79,8 @@ compinit
 HISTFILE=~/.cache/zhistory
 HISTSIZE=8192
 SAVEHIST=8192
-setopt autocd extendedglob nomatch notify auto_pushd
-unsetopt beep
+setopt autocd autopushd extendedglob nomatch
+unsetopt beep notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
@@ -103,6 +103,11 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
+
 bindkey ' ' magic-space
 
 # config & cache location
@@ -118,14 +123,14 @@ export ZSHZ_DATA=$HOME/.cache/z
 export BAT_THEME="base16"
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
 export GPG_TTY=$(tty) # fixes gpg
+export LESS="-i $LESS"
 export MANROFFOPT="-c"
 export MANWIDTH=${MANWIDTH:-78}
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
 # local path
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/cargo/bin:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
 
 # ccache support
 export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
-export USE_CCACHE=1

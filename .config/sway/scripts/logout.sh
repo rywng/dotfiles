@@ -9,7 +9,7 @@ if [[ ! $(which swayidle 2> /dev/null) ]]; then
 fi
 
 choices=("suspend" "poweroff" "reboot" "lock")
-choice=$(printf "%s\n" "${choices[@]}" | fuzzel -d --prompt "󰚥: ")
+choice=$(printf "%s\n" "${choices[@]}" | fuzzel -d --prompt "🔌: ")
 
 
 if test "$choice" = lock ; then
