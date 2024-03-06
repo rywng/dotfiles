@@ -18,6 +18,6 @@ fi
 # Put your fun stuff here.
 
 # https://wiki.gentoo.org/wiki/Fish#fish_as_a_default_shell_with_bash_as_the_login_shell
-# Use fish in place of bash
+# Use nu in place of bash
 # keep this line at the bottom of ~/.bashrc
-[ -x /bin/fish ] && SHELL=/bin/fish exec fish
+[ -x /bin/nu ] && SHELL=/bin/nu exec nu
