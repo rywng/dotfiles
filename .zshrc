@@ -24,8 +24,7 @@ zinit wait lucid for \
     agkozak/zsh-z \
     zpm-zsh/colors \
     zpm-zsh/colorize \
-    rywng/shortify.zsh \
-    rywng/kitty-zsh
+    rywng/shortify.zsh
 
 zinit ice wait lucid atinit"bindkey '' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
@@ -34,7 +33,6 @@ zinit ice wait lucid
 zinit load hlissner/zsh-autopair
 
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-history-substring-search
 
 # Software
 if  ! command -v bat &> /dev/null ; then
@@ -105,11 +103,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '' history-substring-search-up
-bindkey '' history-substring-search-down
-
 bindkey ' ' magic-space
 
 # config & cache location
@@ -125,7 +118,6 @@ export ZSHZ_DATA=$HOME/.cache/z
 export BAT_THEME="base16"
 export FZF_DEFAULT_OPTS="--reverse --cycle --height=40% --border sharp --prompt=🔎"
 export GPG_TTY=$(tty) # fixes gpg
-export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export MANROFFOPT="-c"
 export MANWIDTH=${MANWIDTH:-78}
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
