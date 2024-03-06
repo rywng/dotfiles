@@ -10,10 +10,14 @@ Linux desktop with gruvbox colorscheme, following the KISS philosophy.
 <details open>
 <summary>Old Screenshots</summary>
 <br>
-These are screenshots I took 2 years ago when I was using [serenade](https://github.com/rywng/dotfiles/commit/85e37a124be69b2c9366c6745204457c91cb8871)  :)
+
+These are screenshots I took 2 years ago when I was using [serenade](https://github.com/rywng/dotfiles/commit/85e37a124be69b2c9366c6745204457c91cb8871) :)
+
 Kept them around because they look quite good
+
 ![terminal](https://user-images.githubusercontent.com/72336775/176679848-a66143cb-0df8-4fd0-a567-66693c33741e.png)
 ![blank](https://user-images.githubusercontent.com/72336775/176679629-c8da017a-2daf-4871-a34f-75bcd3738e28.png)
+
 </details>
 
 # Installing
