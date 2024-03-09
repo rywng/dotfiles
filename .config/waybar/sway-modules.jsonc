@@ -90,8 +90,7 @@
 		},
 		"return-type": "json",
 		"exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(album)}}\", \"class\": \"{{status}}\", \"alt\": \"{{status}}\" }' -F",
-		"max-length": 40,
-		"on-click": "playerctl play-pause",
-		"on-click-right": "pavucontrol"
+		"max-length": 48,
+		"on-click": "playerctl play-pause"
 	}
 }

@@ -21,7 +21,7 @@
 			"clock"
 		],
 		"include": [
-			"~/.config/waybar/sway-modules.json"
+			"~/.config/waybar/sway-modules.jsonc"
 		]
 	},
 	{
