@@ -34,14 +34,14 @@ zinit light zsh-users/zsh-history-substring-search
 
 # Software
 if  ! command -v bat &> /dev/null ; then
-	zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
-	zinit light sharkdp/bat
+    zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+    zinit light sharkdp/bat
 fi
 
-if ! command -v direnv &> /dev/null; then
-	zinit ice from"gh-r" as"program" mv"direnv* -> direnv"
-	zinit light direnv/direnv
-fi
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+    pick"direnv" src="zhook.zsh" for \
+    direnv/direnv
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
