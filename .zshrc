@@ -1,8 +1,3 @@
-cat ~/.config/splash 2> /dev/null || true
-echo
-echo '\033[0;35m   /w '$(awk -F "=" '/^NAME/ {print $2}' 2> /dev/null < /etc/os-release || uname -o)
-echo '\033[0;34m    @ '$HOST
-
 # Install zinit if no zinit is present
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then

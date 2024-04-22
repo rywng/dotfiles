@@ -19,14 +19,14 @@ if test "$choice" = lock; then
 		sleep_time=10
 	fi
 	sleep 0.3
-	playerctl stop
+	# playerctl stop
 
-	bright=$(light)
+	bright=$(xbacklight -get)
 
 	swayidle -w \
-		timeout 5 "light -S 1" resume "light -S $bright" \
-		timeout $sleep_time 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+		timeout 5 "xbacklight -set 0" resume "xbacklight -set $bright" \
 		&
+		# timeout $sleep_time 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 	idlepid=$!
 
 	# swaylock -e -c 282828 --inside-color 00000003
@@ -35,7 +35,7 @@ if test "$choice" = lock; then
 
 	kill $idlepid
 	swaymsg "output * power on"
-	light -S $bright
+	xbacklight -set $bright
 elif test -n "$choice"; then
 	systemctl $choice
 fi

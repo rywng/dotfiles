@@ -25,7 +25,7 @@
 		]
 	},
 	{
-		"layer": "top",
+		// "layer": "top",
 		"name": "alt",
 		"output": "XMI Redmi 27 NU 3948622WH08F4",
 		"modules-left": [
