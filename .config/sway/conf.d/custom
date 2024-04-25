@@ -1,7 +1,3 @@
 # vim: filetype=swayconfig
 
 include ~/.config/sway/conf.d/custom.d/*
-
-# Systemd integration
-exec "systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target"
-exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
