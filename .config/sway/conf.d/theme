@@ -4,8 +4,8 @@ include ~/.config/sway/conf.d/themes/dark
 
 # laptop output mode
 set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
+bindswitch --reload --locked lid:on exec ~/.config/sway/scripts/lid_switch/laptop_screen.sh disable
+bindswitch --reload --locked lid:off exec ~/.config/sway/scripts/lid_switch/laptop_screen.sh enable
 
 #workspace_auto_back_and_forth yes
 force_display_urgency_hint 500 ms
