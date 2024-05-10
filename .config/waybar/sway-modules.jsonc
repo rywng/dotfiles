@@ -7,7 +7,8 @@
 		"max-length": 50
 	},
 	"tray": {
-		"spacing": 10
+		"spacing": 10,
+		"show-passive-items": true
 	},
 	"cpu": {
 		"format": " {load}",
@@ -44,7 +45,7 @@
 		]
 	},
 	"clock": {
-		"format": "{:󰅐 %H:%M   %m-%d}",
+		"format": "󰅐 {:%H:%M   %m-%d}",
 		"format-alt": " {:%A, %B %d, %Y (%r)}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {
