@@ -74,7 +74,7 @@ compinit
 HISTFILE=~/.cache/zhistory
 HISTSIZE=8192
 SAVEHIST=8192
-setopt autocd autopushd extendedglob nomatch
+setopt autocd autopushd extendedglob nomatch inc_append_history
 unsetopt beep notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -126,6 +126,4 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 # local path
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/.cache/go/bin:${HOME}/.local/share/nvim/mason/bin"
-
-# ccache support
-export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
+export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH" # ccache support
