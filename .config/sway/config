@@ -1,5 +1,6 @@
 include ~/.config/sway/conf.d/display
-include ~/.config/sway/conf.d/theme
 include ~/.config/sway/conf.d/keybinds
+include ~/.config/sway/conf.d/theme
+include ~/.config/sway/conf.d/windows-rules
 include ~/.config/sway/conf.d/custom
 include ~/.config/sway/conf.d/exec
