@@ -1,15 +1,14 @@
 # vim: ft=swayconfig
-# TODO: Clean this up
-#set the variables
 set {
-	$popup floating enable; sticky enable;
+	$sticky floating enable; sticky enable;
 	$float floating enable;
 }
 for_window {
-	[app_id="librewolf" title="^Picture-in-Picture$"] $popup
+	[app_id="librewolf" title="^Picture-in-Picture$"] $sticky
 
 	[app_id="exe$"] $float # Wayland wine app
 	[class="exe$"] $float # XWayland wine app
+	[instance="java-lang-Thread"] $float
 	[instance="steamwebhelper"] $float
 	[title="Extension:*"] $float # Bitwarden passkey etc.
 	[window_role="pop-up,task_dialog,About"] $float

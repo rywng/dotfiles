@@ -12,12 +12,6 @@ choices=("suspend" "poweroff" "reboot" "lock")
 choice=$(printf "%s\n" "${choices[@]}" | fuzzel -d --prompt "🔌: ")
 
 if test "$choice" = lock; then
-	# sleep less when power on
-	if acpi -a | grep -q on; then
-		sleep_time=3600
-	else
-		sleep_time=10
-	fi
 	sleep 0.3
 	# playerctl stop
 
