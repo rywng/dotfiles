@@ -25,7 +25,6 @@ zinit ice wait lucid atinit"bindkey '^ ' autosuggest-execute" atload'_zsh_autosu
 zinit light zsh-users/zsh-autosuggestions
 
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-history-substring-search
 
 # Software
 if  ! command -v bat &> /dev/null ; then
@@ -72,9 +71,9 @@ compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.cache/zhistory
-HISTSIZE=8192
-SAVEHIST=8192
-setopt autocd autopushd extendedglob nomatch inc_append_history
+HISTSIZE=16384
+SAVEHIST=16384
+setopt autocd autopushd extendedglob nomatch inc_append_history hist_ignore_dups
 unsetopt beep notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -91,17 +90,6 @@ bindkey '' edit-command-line
 # better CTRL-w
 autoload -Uz select-word-style
 select-word-style bash
-
-zmodload zsh/complist
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
 
 bindkey ' ' magic-space
 
