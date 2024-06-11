@@ -7,10 +7,11 @@ for_window {
 	[app_id="librewolf" title="^Picture-in-Picture$"] $sticky
 
 	[app_id="exe$"] $float # Wayland wine app
+	[app_id="org.strawberrymusicplayer.strawberry"] $float
 	[class="exe$"] $float # XWayland wine app
-	[instance="java-lang-Thread"] $float
 	[instance="steamwebhelper"] $float
 	[title="Extension:*"] $float # Bitwarden passkey etc.
+	[title="Write:*"] $float # Thunderbird write emails
 	[window_role="pop-up,task_dialog,About"] $float
 	[window_type="dialog"] $float
 	[window_type="dropdown_menu"] $float
