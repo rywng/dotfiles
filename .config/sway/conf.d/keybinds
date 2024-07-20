@@ -51,7 +51,7 @@ bindsym XF86AudioNext exec 'playerctl next'
 bindsym XF86AudioPrev exec 'playerctl previous'
 
 # sticky window
-bindsym $mod+Ctrl+s floating toggle ; sticky toggle ; resize set 800 600 ; move position 55ppt 5ppt
+bindsym $mod+Ctrl+s sticky toggle
 
 # Start a terminal
 bindsym $mod+Return exec $term

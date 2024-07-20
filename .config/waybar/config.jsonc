@@ -2,7 +2,7 @@
 	{
 		"layer": "top",
 		"name": "main",
-		"output": "!XMI Redmi 27 NU 3948622WH08F4",
+		// "output": "!XMI Redmi 27 NU 3948622WH08F4",
 		"modules-left": [
 			"sway/workspaces"
 		],
@@ -23,19 +23,19 @@
 		"include": [
 			"~/.config/waybar/sway-modules.jsonc"
 		]
-	},
-	{
-		// "layer": "top",
-		"name": "alt",
-		"output": "XMI Redmi 27 NU 3948622WH08F4",
-		"modules-left": [
-			"sway/workspaces"
-		],
-		"modules-right": [
-			"sway/window"
-		],
-		"sway/window": {
-			"max-length": 128
-		}
 	}
+	// {
+	// 	// "layer": "top",
+	// 	"name": "alt",
+	// 	"output": "XMI Redmi 27 NU 3948622WH08F4",
+	// 	"modules-left": [
+	// 		"sway/workspaces"
+	// 	],
+	// 	"modules-right": [
+	// 		"sway/window"
+	// 	],
+	// 	"sway/window": {
+	// 		"max-length": 128
+	// 	}
+	// }
 ]

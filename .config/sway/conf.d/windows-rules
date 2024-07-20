@@ -9,6 +9,8 @@ for_window {
 	[app_id="exe$"] $float # Wayland wine app
 	[app_id="org.strawberrymusicplayer.strawberry"] $float
 	[class="exe$"] $float # XWayland wine app
+	[instance="REAPER"] $float
+	[instance="steam_proton"] $float # proton wine app
 	[instance="steamwebhelper"] $float
 	[title="Extension:*"] $float # Bitwarden passkey etc.
 	[title="Write:*"] $float # Thunderbird write emails
