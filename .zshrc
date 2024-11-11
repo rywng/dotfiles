@@ -94,7 +94,6 @@ select-word-style bash
 bindkey ' ' magic-space
 
 # config & cache location
-export CARGO_HOME=$HOME/.cache/cargo
 export GOPATH=$HOME/.cache/go
 export LESSHISTFILE=/dev/null
 export LYNX_CFG=$HOME/.config/lynx/lynxrc
