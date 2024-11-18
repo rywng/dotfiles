@@ -32,18 +32,22 @@ if  ! command -v bat &> /dev/null ; then
     zinit light sharkdp/bat
 fi
 
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-    pick"direnv" src="zhook.zsh" for \
-    direnv/direnv
+if ! command -v direnv &> /dev/null ; then
+    zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+	atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+	pick"direnv" src="zhook.zsh" for \
+	direnv/direnv
+fi
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
+# Set ls colors for GNU/Linux, BSDs doesn't need this
+if [[ $(uname) = "Linux" ]]; then
+	test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
+fi
 
 # The following lines were added by compinstall
-
 zstyle ':completion:*' auto-description '%F{green}Specify%f: %F{cyan}%d%f'
 zstyle ':completion:*' completer _oldlist _expand _complete _ignored _match _correct _approximate _prefix
 zstyle ':completion:*' completions 1
