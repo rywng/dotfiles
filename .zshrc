@@ -24,8 +24,6 @@ zinit wait lucid for \
 zinit ice wait lucid atinit"bindkey '^ ' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
-zinit light zsh-users/zsh-completions
-
 # Software
 if  ! command -v bat &> /dev/null ; then
     zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
