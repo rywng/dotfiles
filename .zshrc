@@ -117,3 +117,6 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/.cache/go/bin:${HOME}/.cargo/bin:${HOME}/.local/share/nvim/mason/bin"
 export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH" # ccache support
+
+# nix setup
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
