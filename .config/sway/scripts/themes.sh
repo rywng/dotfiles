@@ -18,35 +18,19 @@ sed -i $command ~/.config/waybar/style.css
 swaync-client -rs &
 
 # more settings
-if [ $scheme = "light" ]; then
-    # kitty config
-    kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/light.conf" &
-    # fuzzel
-    ln -sf ~/.config/fuzzel/fuzzel-light.ini ~/.config/fuzzel/fuzzel.ini
-    # zathura
-    ln -sf ~/.config/zathura/zathurarc.light ~/.config/zathura/zathurarc
-    # qt5ct and qt6ct
-    ln -sf ~/.config/qt5ct/light.conf ~/.config/qt5ct/qt5ct.conf
-    ln -sf ~/.config/qt6ct/light.conf ~/.config/qt6ct/qt6ct.conf
-    # gtk2
-    ln -sf ~/.config/gtk-2.0/light.conf ~/.gtkrc-2.0
-    # gtk3
-    ln -sf ~/.config/gtk-3.0/light.ini ~/.config/gtk-3.0/settings.ini
-else
-    # kitty config
-    kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/dark.conf" &
-    # zathura
-    ln -sf ~/.config/zathura/zathurarc.dark ~/.config/zathura/zathurarc
-    # fuzzel
-    ln -sf ~/.config/fuzzel/fuzzel-dark.ini ~/.config/fuzzel/fuzzel.ini
-    # qt5ct and qt6ct
-    ln -sf ~/.config/qt5ct/dark.conf ~/.config/qt5ct/qt5ct.conf
-    ln -sf ~/.config/qt6ct/dark.conf ~/.config/qt6ct/qt6ct.conf
-    # gtk2
-    ln -sf ~/.config/gtk-2.0/dark.conf ~/.gtkrc-2.0
-    # gtk3
-    ln -sf ~/.config/gtk-3.0/dark.ini ~/.config/gtk-3.0/settings.ini
-fi
+# kitty config
+kitty -1 sh -c "kitty @ set-colors -a -c ~/.config/kitty/themes/$scheme.conf" &
+# zathura
+ln -sf ~/.config/zathura/zathurarc.$scheme ~/.config/zathura/zathurarc
+# fuzzel
+ln -sf ~/.config/fuzzel/fuzzel-$scheme.ini ~/.config/fuzzel/fuzzel.ini
+# qt5ct and qt6ct
+ln -sf ~/.config/qt5ct/$scheme.conf ~/.config/qt5ct/qt5ct.conf
+ln -sf ~/.config/qt6ct/$scheme.conf ~/.config/qt6ct/qt6ct.conf
+# gtk2
+ln -sf ~/.config/gtk-2.0/$scheme.conf ~/.gtkrc-2.0
+# gtk3
+ln -sf ~/.config/gtk-3.0/$scheme.ini ~/.config/gtk-3.0/settings.ini
 
 swaymsg reload
 systemctl --user restart waybar.service
