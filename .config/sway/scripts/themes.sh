@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-scheme=$(echo -e "light\ndark" | fuzzel -d -p "󰔎 : ")
+#!/usr/bin/env sh
+scheme=$(/bin/echo -e "light\ndark" | fuzzel -d -p "󰔎 : ")
 
 # simply subsitude dark and light
 if [ $scheme = "light" ]; then
