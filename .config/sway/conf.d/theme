@@ -1,6 +1,6 @@
 # vim: filetype=swayconfig
 
-include ~/.config/sway/conf.d/themes/light
+include ~/.config/sway/conf.d/themes/dark
 
 # laptop output mode
 set $laptop eDP-1

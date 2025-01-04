@@ -8,7 +8,7 @@
 	min-height: 0;
 }
 
-@import "light.less";
+@import "dark.less";
 
 window#waybar {
 	background: @background;
