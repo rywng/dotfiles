@@ -31,7 +31,7 @@ Kept them around because they look quite good
 I use [yadm](https://github.com/TheLocehiliosan/yadm) to manage dotfiles, the directory layout is unchanged so that you can simply clone this.
 
 ```bash
-yadm clone https://github.com/JuanCldCmt/dotfiles
+yadm clone https://github.com/rywng/dotfiles
 ```
 
 ## Software included
