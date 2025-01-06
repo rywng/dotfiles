@@ -13,7 +13,7 @@ Minimalist sway desktop with `gruvbox` color scheme, following the KISS philosop
 ![code](https://github.com/rywng/dotfiles/assets/72336775/2101a2b3-240f-4c18-9bd4-630c1d4c9036)
 ![blank](https://github.com/rywng/dotfiles/assets/72336775/c8626d9b-2ea1-4576-946d-883fb5b3688f)
 
-<details open>
+<details>
 <summary>Old Screenshots</summary>
 <br>
 
