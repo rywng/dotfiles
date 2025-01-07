@@ -13,7 +13,7 @@
 		"modules-right": [
 			"tray",
 			"custom/notification",
-			"custom/player",
+			"mpris",
 			"cpu",
 			"memory",
 			"network",
