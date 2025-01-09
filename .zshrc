@@ -10,7 +10,6 @@ fi
 source "$ZINIT_HOME/zinit.zsh"
 
 # Zinit packages
-
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
@@ -24,7 +23,7 @@ zinit wait lucid for \
 zinit ice wait lucid atinit"bindkey '^ ' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
-# Software
+# Conditional loading of software
 if  ! command -v bat &> /dev/null ; then
     zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
     zinit light sharkdp/bat
@@ -32,17 +31,24 @@ fi
 
 if ! command -v direnv &> /dev/null ; then
     zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-	atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-	pick"direnv" src="zhook.zsh" for \
-	direnv/direnv
+        atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+        pick"direnv" src="zhook.zsh" for \
+        direnv/direnv
 fi
+
+# nix setup
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+    . ~/.nix-profile/etc/profile.d/nix.sh;
+    zinit ice wait lucid
+    zinit load nix-community/nix-zsh-completions
+fi # added by Nix installer
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Set ls colors for GNU/Linux, BSDs doesn't need this
 if [[ $(uname) = "Linux" ]]; then
-	test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
+    test -n "$LS_COLORS" || eval $(dircolors) || echo 'Warning: Unable to set LS_COLORS'
 fi
 
 # The following lines were added by compinstall
@@ -117,6 +123,3 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/.cache/go/bin:${HOME}/.cargo/bin:${HOME}/.local/share/nvim/mason/bin"
 export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH" # ccache support
-
-# nix setup
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
