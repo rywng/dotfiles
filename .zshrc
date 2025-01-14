@@ -23,6 +23,12 @@ zinit wait lucid for \
 zinit ice wait lucid atinit"bindkey '^ ' autosuggest-execute" atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
+# Atuin history
+zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
+    atclone"./atuin init zsh --disable-up-arrow > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
+    atpull"%atclone" src"init.zsh"
+zinit light atuinsh/atuin
+
 # Conditional loading of software
 if  ! command -v bat &> /dev/null ; then
     zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
@@ -78,10 +84,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.cache/zhistory
-HISTSIZE=16384
-SAVEHIST=16384
-setopt autocd autopushd extendedglob nomatch inc_append_history hist_ignore_dups
+setopt autocd autopushd extendedglob nomatch
 unsetopt beep notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
