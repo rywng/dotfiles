@@ -84,7 +84,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
-setopt autocd autopushd extendedglob nomatch
+HISTSIZE=2048
+setopt autocd autopushd extendedglob nomatch hist_ignore_dups
 unsetopt beep notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
