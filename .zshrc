@@ -17,7 +17,7 @@ zinit wait lucid for \
     zdharma-continuum/fast-syntax-highlighting \
     agkozak/zsh-z \
     zpm-zsh/colors \
-    zpm-zsh/colorize \
+    rywng/colorize \
     rywng/shortify.zsh
 
 zinit ice wait lucid atinit"bindkey '^ ' autosuggest-execute" atload'_zsh_autosuggest_start'
