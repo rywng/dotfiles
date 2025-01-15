@@ -43,12 +43,12 @@ fi
 
 # Conditional loading of software
 if  ! command -v bat &> /dev/null ; then
-    zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+    zinit ice wait lucid as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
     zinit light sharkdp/bat
 fi
 
 if ! command -v direnv &> /dev/null ; then
-    zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+    zinit ice wait from"gh-r" as"program" mv"direnv* -> direnv" \
         atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
         pick"direnv" src="zhook.zsh" for \
         direnv/direnv
@@ -58,7 +58,7 @@ fi
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh;
     zinit ice wait lucid
-    zinit load nix-community/nix-zsh-completions
+    zinit light nix-community/nix-zsh-completions
 fi # added by Nix installer
 
 autoload -Uz _zinit
