@@ -31,13 +31,9 @@ if ! command -v atuin &> /dev/null ; then
     zinit light atuinsh/atuin
 else
     zinit ice wait lucid \
-	atclone"atuin init zsh --disable-up-arrow > init.zsh; atuin gen-completions --shell zsh > _atuin" \
-	atpull"%atclone" src"init.zsh"
-    if [ -f /usr/share/atuin/shell-init/zsh ] ; then
-	zinit snippet /usr/share/atuin/shell-init/zsh # Gentoo installation
-    else
-	zinit light atuinsh/atuin # other distros
-    fi
+        atclone"atuin init zsh --disable-up-arrow > init.zsh; atuin gen-completions --shell zsh > _atuin" \
+        atpull"%atclone" src"init.zsh"
+    zinit light atuinsh/atuin # Use zsh plugin from github
 fi
 
 
