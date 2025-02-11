@@ -54,6 +54,7 @@ This list may be out-dated, check `.config/` folder for more.
 | Name                          | Description                                                                             |
 | ----------------------------- | --------------------------------------------------------------------------------------- |
 | `acpilight`                   | CLI for managing backlight                                                              |
+| `gui-apps/qt6ct`              | To configure qt themes                                                                  |
 | `kde-frameworks/breeze-icons` | Icons for qt                                                                            |
 | `pipewire`                    | Sound and screen sharing under Wayland                                                  |
 | `playerctld`                  | Control players, and show current playing                                               |
