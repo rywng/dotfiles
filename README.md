@@ -51,11 +51,12 @@ This list may be out-dated, check `.config/` folder for more.
 
 ## Dependencies
 
-| Name          | Description                                                                             |
-| ------------- | --------------------------------------------------------------------------------------- |
-| `acpilight`   | CLI for managing backlight                                                              |
-| `pipewire`    | Sound and screen sharing under Wayland                                                  |
-| `playerctld`  | Control players, and show current playing                                               |
-| `wireplumber` | media session management (remember to replace it in sway's config if using non-systemd) |
-| `wlsunset`    | Shift blue color based on time (Protects my eyes)                                       |
-| `wob`         | show screen backlight and audio output volume level                                     |
+| Name                          | Description                                                                             |
+| ----------------------------- | --------------------------------------------------------------------------------------- |
+| `acpilight`                   | CLI for managing backlight                                                              |
+| `kde-frameworks/breeze-icons` | Icons for qt                                                                            |
+| `pipewire`                    | Sound and screen sharing under Wayland                                                  |
+| `playerctld`                  | Control players, and show current playing                                               |
+| `wireplumber`                 | media session management (remember to replace it in sway's config if using non-systemd) |
+| `wlsunset`                    | Shift blue color based on time (Protects my eyes)                                       |
+| `wob`                         | show screen backlight and audio output volume level                                     |
