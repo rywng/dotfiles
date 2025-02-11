@@ -19,8 +19,7 @@ if test "$choice" = lock; then
 
 	swayidle -w \
 		timeout 5 "xbacklight -set 0" resume "xbacklight -set $bright" \
-		&
-		# timeout $sleep_time 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+		timeout 10 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' &
 	idlepid=$!
 
 	swaylock -e -c 282828 --inside-color 00000003
