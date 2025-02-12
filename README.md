@@ -55,6 +55,9 @@ This list may be out-dated, check `.config/` folder for more.
 | ----------------------------- | --------------------------------------------------------------------------------------- |
 | `acpilight`                   | CLI for managing backlight                                                              |
 | `gui-apps/qt6ct`              | To configure qt themes                                                                  |
+| `gui-apps/swaybg`             | Set wallpaper for sway                                                                  |
+| `gui-apps/swayidle`           | Auto suspend and lock                                                                   |
+| `gui-apps/swaylock`           | Locking in sway                                                                         |
 | `kde-frameworks/breeze-icons` | Icons for qt                                                                            |
 | `pipewire`                    | Sound and screen sharing under Wayland                                                  |
 | `playerctld`                  | Control players, and show current playing                                               |
