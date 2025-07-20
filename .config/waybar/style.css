@@ -3,21 +3,17 @@
  */
 
 * {
-	font-family: "IBM Plex Mono", "Symbols Nerd Font", sans-serif;
-	font-size: 14px;
-	min-height: 0;
+	font-family: "Iosevka Slab",  sans-serif;
+	font-size: 16px;
+	min-height: 24px;
+	margin: 0em 0.2em;
 }
 
 @import "dark.less";
 
 window#waybar {
 	background: @background;
-	border-bottom: 1px solid @selection_background;
-}
-
-#workspaces,
-#window {
-	margin: 5px 10px;
+	border-bottom: 2px solid @selection_background;
 }
 
 #window {
@@ -25,7 +21,8 @@ window#waybar {
 }
 
 #workspaces button {
-	padding: 0 0.1em;
+	padding: 0em 0.1em;
+	margin: 0em 0em;
 	background: transparent;
 	color: @background_b;
 }
@@ -50,6 +47,18 @@ window#waybar {
 #cpu,
 #window {
 	color: @background_b;
+}
+
+#network,
+#battery,
+#clock,
+#mpris,
+#custom-notification,
+#memory,
+#cpu,
+#tray,
+#window {
+	padding: 0 0.4em;
 }
 
 #clock {
@@ -91,24 +100,6 @@ window#waybar {
 
 #network.wifi {
 	color: @green;
-	font-style: italic;
-}
-
-#clock,
-#cpu,
-#memory,
-#battery,
-#network,
-#custom-notification,
-#tray,
-#mpris {
-	padding: 0px 5px;
-	margin: 0px 5px;
-}
-
-#clock {
-	margin-left: 10px;
-	margin-right: 10px;
 }
 
 #tray {
