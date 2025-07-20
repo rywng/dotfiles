@@ -11,20 +11,20 @@
 		"show-passive-items": true
 	},
 	"cpu": {
-		"format": "[load]: {load}",
-		"format-alt": "[load]: {usage}% @ {avg_frequency}GHz"
+		"format": " {load}",
+		"format-alt": " {usage}% @ {avg_frequency}GHz"
 	},
 	"memory": {
-		"format": "[mem]: {used:0.1f} / {total:0.1f}G",
-		"format-alt": "[swap]: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
+		"format": "󰍛 {used:0.1f} / {total:0.1f}G",
+		"format-alt": "󰓡 Swap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
 	},
 	"network": {
-		"format-wifi": "[{ifname}]: {essid} ({signaldBm}dBm)",
-		"format-ethernet": "[{ifname}]: ethernet",
-		"format-linked": "[{ifname}]: linked",
-		"format-disconnected": "[network]: disconnected",
-		"format-alt": "[{ifname}]: {ipaddr}/{cidr} via {gwaddr}",
-		"tooltip-format": "[{ifname}]: {ipaddr}/{cidr} via {gwaddr}"
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-ethernet": "󰈀 {ifname}",
+		"format-linked": " {ifname}",
+		"format-disconnected": "󰌙 Disconnected",
+		"format-alt": "󰩟 {ifname}: {ipaddr}/{cidr}",
+		"tooltip-format": "{ifname} via {gwaddr}"
 	},
 	"battery": {
 		"states": {
@@ -32,13 +32,21 @@
 			"warning": 15,
 			"critical": 5
 		},
-		"format": "[bat]: {capacity}%",
-		"format-charging": "[bat]: {capacity}% (charging)",
-		"format-plugged": "[bat]: {capacity}% (plugged)",
-		"format-alt": "[bat]: eta {time}",
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰉁 {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{icon} ETA: {time}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
 	},
 	"clock": {
-		"format": "{:%H:%M  %a,%b %d}",
+		"format": "󰅐 {:%H:%M   %m-%d}",
+		"format-alt": " {:%A, %B %d, %Y (%r)}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {
 			"mode": "year",
@@ -61,12 +69,12 @@
 	},
 	"custom/notification": {
 		"tooltip": true,
-		"format": "[notif]: {icon}",
+		"format": "{icon}",
 		"format-icons": {
-			"notification": "{text} unread",
-			"none": "empty",
-			"dnd-notification": "DND on",
-			"dnd-none": "DND on"
+			"notification": " <span foreground='red'><sup></sup></span> <span weight=\"bold\">Unread</span>",
+			"none": "  <span style=\"italic\">Empty</span>",
+			"dnd-notification": "  <span style=\"italic\">DND on</span>",
+			"dnd-none": "  <span style=\"italic\">DND on</span>"
 		},
 		"return-type": "json",
 		"exec-if": "which swaync-client",
@@ -76,10 +84,10 @@
 		"escape": true
 	},
 	"mpris": {
-		"format": "[mpris]: {status_icon} <span style=\"italic\">{dynamic}</span>",
+		"format": "{status_icon} <span style=\"italic\">{dynamic}</span>",
 		"status-icons": {
-			"playing": "playing",
-			"paused": "paused"
+			"playing": "󰎈 ",
+			"paused": "󰏤 "
 		},
 		"dynamic-order": [
 			"title",
