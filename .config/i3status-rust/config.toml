@@ -9,7 +9,7 @@ warning_fg = "#282828"
 
 [[block]]
 block = "focused_window"
-format = " $title.str |"
+format = " <$title.str> |"
 [[block.click]]
 button = "up"
 cmd = "swaymsg workspace prev_on_output"
@@ -24,14 +24,15 @@ name = "pipewire"
 
 [[block]]
 block = "music"
-format = " $combo.str(max_w:36) $play |"
+format = " $combo.str(max_w:36) [$play] |"
 
 [[block]]
 block = "sound"
 max_vol = 100
 show_volume_when_muted = true
 headphones_indicator = true
-format = " $output_description.str(max_w:36): $volume "
+step_width = 1
+format = " $output_description.str(max_w:36){[$volume]|} "
 
 [[block]]
 block = "load"
@@ -40,23 +41,23 @@ interval = 30
 
 [[block]]
 block = "memory"
-format = " $mem_used.eng(w:4,prefix:Mi) / $mem_total.eng(prefix:Mi) "
-format_alt = " $swap_used.eng(prefix:Mi) / $swap_total.eng(prefix:Mi) "
+format = " [$mem_used.eng(w:4,prefix:Mi) / $mem_total.eng(prefix:Mi)] "
+format_alt = " [$swap_used.eng(prefix:Mi) / $swap_total.eng(prefix:Mi)] "
 interval = 30
 
 [[block]]
 block = "net"
-format = " {$ssid:$signal_strength|Wired}[$device] "
+format = " $ssid[$signal_strength] | Wired[$device] "
 interval = 30
 
 [[block]]
 block = "battery"
-full_format = " $percentage[full] "
-charging_format = " $percentage[$time_remaining til charged] "
-empty_format = " $percentage[!!!] "
-not_charging_format = " $percentage[plugged] "
-missing_format = " [no bat] "
-format = " $percentage[$time_remaining left] "
+full_format = " full[$percentage] "
+charging_format = " $time_remaining til charged[$percentage] "
+empty_format = " !!![$percentage] "
+not_charging_format = " plugged[$percentage] "
+missing_format = ""
+format = " $time_remaining left[$percentage] "
 interval = 30
 
 [[block]]
