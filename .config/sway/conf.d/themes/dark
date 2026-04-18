@@ -32,9 +32,9 @@ bar {
     wrap_scroll yes
     colors {
         background #282828
-        focused_workspace #fbf1c7 #282828 #ebdbb2
+        focused_workspace #b8bb26 #32302f #b8bb26
         active_workspace #928374 #282828 #ebdbb2
-        inactive_workspace #282828 #282828 #928374
+        inactive_workspace #282828 #282828 #ebdbb2
         urgent_workspace #cc241d #282828 #ebdbb2
     }
 }
