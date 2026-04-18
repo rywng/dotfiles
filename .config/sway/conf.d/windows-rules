@@ -7,7 +7,6 @@ for_window {
 	[app_id="librewolf" title="^Picture-in-Picture$"] $sticky
 
 	[app_id="exe$"] $float # Wayland wine app
-	[app_id="org.strawberrymusicplayer.strawberry"] $float
 	[class="exe$"] $float # XWayland wine app
 	[instance="REAPER"] $float
 	[title="Write:*"] $float # Thunderbird write emails
