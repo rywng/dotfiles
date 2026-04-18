@@ -1,0 +1,67 @@
+invert_scrolling = true
+
+[theme]
+theme = "gruvbox-dark"
+[theme.overrides]
+separator = ""
+idle_fg = "#928374"
+info_bg = "#282828"
+info_fg = "#98971a"
+
+[[block]]
+block = "focused_window"
+[block.format]
+full = " $title.str(max_w:48) |"
+short = " $title.str(max_w:24) |"
+
+[[block]]
+block = "privacy"
+[[block.driver]]
+name = "pipewire"
+
+[[block]]
+block = "music"
+format = " {$combo.str(max_w:36) $play |} "
+
+[[block]]
+block = "sound"
+max_vol = 100
+show_volume_when_muted = true
+headphones_indicator = true
+format = " $output_name: $volume "
+format_alt = " $output_description: $volume "
+
+[[block]]
+block = "cpu"
+info_cpu = 20
+warning_cpu = 50
+critical_cpu = 90
+format = " $barchart "
+format_alt = " $utilization "
+
+[[block]]
+block = "memory"
+format = " $mem_used.eng(prefix:Mi) / $mem_total.eng(prefix:Mi) "
+format_alt = " $swap_used.eng(prefix:Mi) / $swap_total.eng(prefix:Mi) "
+interval = 5
+
+[[block]]
+block = "net"
+format = " {$ssid($signal_strength)|Wired connection} via $device "
+interval = 30
+
+[[block]]
+block = "battery"
+full_format = " $percentage(full) "
+charging_format = " $percentage($time_remaining til charged) "
+empty_format = " $percentage(!!!) "
+not_charging_format = " $percentage(plugged) "
+missing_format = " (no bat) "
+format = " $percentage($time_remaining left) "
+interval = 30
+
+[[block]]
+block = "time"
+format = " $timestamp.datetime() "
+[block.theme_overrides]
+idle_fg = "#ebdbb2"

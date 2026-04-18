@@ -25,3 +25,14 @@ default_border pixel 1
 
 output * bg #1d2021 solid_color
 # output * bg $(find ~/Pictures/wall/dark/ -type f | shuf -n1) fill
+
+bar {
+    status_command i3status-rs
+    colors {
+        background #282828
+        focused_workspace #fbf1c7 #282828 #ebdbb2
+        active_workspace #928374 #282828 #ebdbb2
+        inactive_workspace #282828 #282828 #928374
+        urgent_workspace #cc241d #282828 #ebdbb2
+    }
+}
