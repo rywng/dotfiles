@@ -29,6 +29,7 @@ output * bg #1d2021 solid_color
 bar {
     font "Iosevka Fixed Curly" 10
     status_command i3status-rs
+    wrap_scroll yes
     colors {
         background #282828
         focused_workspace #fbf1c7 #282828 #ebdbb2
