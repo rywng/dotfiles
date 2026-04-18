@@ -24,7 +24,11 @@ name = "pipewire"
 
 [[block]]
 block = "music"
+seek_step_secs = 3
 format = " $combo.str(max_w:36) [$play] |"
+[[block.click]]
+button = "left"
+action = "play_pause"
 
 [[block]]
 block = "sound"
@@ -37,7 +41,7 @@ format = " $output_description.str(max_w:36){[$volume]|} "
 [[block]]
 block = "load"
 format = " [$1m.eng(w:3), $5m.eng(w:3), $15m.eng(w:3)] "
-interval = 30
+interval = 60
 
 [[block]]
 block = "memory"
