@@ -1,5 +1,3 @@
-invert_scrolling = true
-
 [theme]
 theme = "gruvbox-dark"
 [theme.overrides]
@@ -14,10 +12,10 @@ block = "focused_window"
 format = " $title.str |"
 [[block.click]]
 button = "up"
-cmd = "swaymsg workspace next_on_output"
+cmd = "swaymsg workspace prev_on_output"
 [[block.click]]
 button = "down"
-cmd = "swaymsg workspace prev_on_output"
+cmd = "swaymsg workspace next_on_output"
 
 [[block]]
 block = "privacy"
