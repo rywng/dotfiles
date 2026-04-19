@@ -27,7 +27,7 @@ output * bg #1d2021 solid_color
 # output * bg $(find ~/Pictures/wall/dark/ -type f | shuf -n1) fill
 
 bar {
-    font "Iosevka Fixed Curly" 10
+    font "Iosevka Curly" 10
     status_command i3status-rs
     wrap_scroll yes
     colors {
