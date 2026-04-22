@@ -38,29 +38,26 @@ yadm clone https://github.com/rywng/dotfiles
 
 This list may be out-dated, check `.config/` folder for more.
 
-| Name      | Description                         |
-| --------- | ----------------------------------- |
-| `fuzzel`  | App launcher & `dmenu` alternative  |
-| `kitty`   | Terminal emulator                   |
-| `mpv`     | Video player                        |
-| `swayNC`  | Notification center                 |
-| `swayWM`  | Stupid simple and stable Wayland WM |
-| `waybar`  | Bar                                 |
-| `zathura` | PDF viewer                          |
-| `zsh`     | Interactive Shell                   |
+| Name                                       | Description                         |
+| ------------------------------------------ | ----------------------------------- |
+| `gui-apps/fuzzel`                          | App launcher & `dmenu` alternative  |
+| `x11-terms/kitty`                          | Terminal emulator                   |
+| `media-video/mpv` + `mpv-plugin/mpv-mpris` | Video player                        |
+| `gui-wm/sway`                              | Stupid simple and stable Wayland WM |
+| `x11-misc/i3status-rust` + `swaybar`       | Bar                                 |
+| `app-text/zathura`                         | PDF viewer                          |
+| `app-shells/zsh`                           | Interactive Shell                   |
 
 ## Dependencies
 
-| Name                          | Description                                                                             |
-| ----------------------------- | --------------------------------------------------------------------------------------- |
-| `acpilight`                   | CLI for managing backlight                                                              |
-| `gui-apps/qt6ct`              | To configure qt themes                                                                  |
-| `gui-apps/swaybg`             | Set wallpaper for sway                                                                  |
-| `gui-apps/swayidle`           | Auto suspend and lock                                                                   |
-| `gui-apps/swaylock`           | Locking in sway                                                                         |
-| `kde-frameworks/breeze-icons` | Icons for qt                                                                            |
-| `pipewire`                    | Sound and screen sharing under Wayland                                                  |
-| `playerctld`                  | Control players, and show current playing                                               |
-| `wireplumber`                 | media session management (remember to replace it in sway's config if using non-systemd) |
-| `wlsunset`                    | Shift blue color based on time (Protects my eyes)                                       |
-| `wob`                         | show screen backlight and audio output volume level                                     |
+| Name                          | Description                                         |
+| ----------------------------- | --------------------------------------------------- |
+| `sys-power/acpilight`         | CLI for managing backlight                          |
+| `gui-apps/qt6ct`              | To configure qt themes                              |
+| `gui-apps/swaybg`             | Set wallpaper for sway                              |
+| `gui-apps/swayidle`           | Auto suspend and lock                               |
+| `gui-apps/swaylock`           | Locking in sway                                     |
+| `kde-frameworks/breeze-icons` | Icons for qt                                        |
+| `media-video/pipewire`        | Sound and screen sharing under Wayland              |
+| `gui-apps/wlsunset`           | Shift blue color based on time (Protects my eyes)   |
+| `gui-apps/wob`                | show screen backlight and audio output volume level |
