@@ -63,6 +63,7 @@ not_charging_format = " plugged[$percentage] "
 missing_format = ""
 format = " $time_remaining left[$percentage] "
 interval = 30
+good = 90
 
 [[block]]
 block = "time"
