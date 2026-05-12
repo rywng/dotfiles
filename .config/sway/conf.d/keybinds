@@ -12,7 +12,7 @@ set $menu fuzzel
 
 # screenshot
 bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy
-bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
+bindsym $mod+Ctrl+s exec grim -g "$(slurp -d)" - | wl-copy
 # notification client
 bindsym $mod+m exec swaync-client -t -sw
 # Logout
@@ -51,7 +51,7 @@ bindsym XF86AudioNext exec 'playerctl next'
 bindsym XF86AudioPrev exec 'playerctl previous'
 
 # sticky window
-bindsym $mod+Ctrl+s sticky toggle
+bindsym $mod+Shift+s sticky toggle
 
 # Start a terminal
 bindsym $mod+Return exec $term
@@ -59,13 +59,13 @@ bindsym $mod+n exec $term
 # Kill focused window
 bindsym $mod+w kill
 # Start your launcher
-bindsym $mod+Shift+Return exec $menu
-bindsym $mod+Shift+n exec $menu
+bindsym $mod+Ctrl+Return exec $menu
+bindsym $mod+Ctrl+e exec $menu
 
 floating_modifier $mod normal
 
 bindsym $mod+Ctrl+r reload
-bindsym $mod+Ctrl+q exit
+bindsym $mod+Ctrl+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 
 # Move your focus around
