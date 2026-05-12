@@ -9,8 +9,8 @@ bright=$(xbacklight -get)
 flock ~/.config/sway/locks/swayidle echo Successfully acquired lock
 
 swayidle -w \
-	timeout 5 "xbacklight -set 0" resume "xbacklight -set $bright" \
-	timeout 10 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' &
+	timeout 5 "xbacklight -set 5" resume "xbacklight -set $bright" &
+	# timeout 10 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' &
 
 idlepid=$!
 
