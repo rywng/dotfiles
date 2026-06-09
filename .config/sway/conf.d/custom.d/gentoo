@@ -1,4 +1,1 @@
 # vim: filetype=swayconfig
-
-# systemd support
-exec ~/.config/sway/scripts/systemd/session.sh
