@@ -6,6 +6,10 @@ set {
 for_window {
 	[app_id="librewolf" title="^Picture-in-Picture$"] $sticky
 
+	[app_id="exe$"] $float # Wayland wine app
+	[class="exe$"] $float # XWayland wine app
+	[instance="REAPER"] $float
+	[title="Write:*"] $float # Thunderbird write emails
 	[window_role="pop-up,task_dialog,About"] $float
 	[window_type="dialog"] $float
 	[window_type="dropdown_menu"] $float
