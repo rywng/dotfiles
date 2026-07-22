@@ -24,18 +24,12 @@ zinit ice wait lucid atinit"bindkey '^ ' autosuggest-execute" atload'_zsh_autosu
 zinit light zsh-users/zsh-autosuggestions
 
 # Atuin history
-if ! command -v atuin &> /dev/null ; then
-    zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
-        atclone"./atuin init zsh --disable-up-arrow > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
-        atpull"%atclone" src"init.zsh"
-    zinit light atuinsh/atuin
-else
+if command -v atuin &> /dev/null ; then
     zinit ice wait lucid \
         atclone"atuin init zsh --disable-up-arrow > init.zsh; atuin gen-completions --shell zsh > _atuin" \
         atpull"%atclone" src"init.zsh"
     zinit light atuinsh/atuin # Use zsh plugin from github
 fi
-
 
 # Conditional loading of software
 if  ! $(command -v bat &> /dev/null) ; then
