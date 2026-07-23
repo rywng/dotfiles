@@ -128,4 +128,3 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 # local path
 export MANPATH="${MANPATH}:${HOME}/.local/share/man"
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.scripts:${HOME}/.cache/go/bin:${HOME}/.cargo/bin:${HOME}/.local/share/nvim/mason/bin"
-export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH" # ccache support
