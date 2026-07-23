@@ -1,7 +1,5 @@
 # vim: filetype=swayconfig
 
-include ~/.config/sway/conf.d/themes/dark
-
 # laptop output mode
 set $laptop eDP-1
 bindswitch --reload --locked lid:on exec ~/.config/sway/scripts/lid_switch/laptop_screen.sh disable
@@ -14,3 +12,43 @@ smart_borders no_gaps
 seat * xcursor_theme Adwaita
 
 seat * hide_cursor 10000
+
+# Colors
+
+#set gtk theme and font
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema color-scheme 'prefer-dark'
+    gsettings set $gnome-schema gtk-theme 'Adwaita'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema cursor-theme 'Adwaita'
+    gsettings set $gnome-schema font-name 'ibm-plex 12'
+    gsettings set org.gtk.Settings.FileChooser startup-mode cwd
+}
+
+#set colour
+#color class            border  backgr. text    indicator child_border
+client.focused          #fbf1c7 #282828 #ebdbb2 #928374   #fbf1c7
+client.focused_inactive #928374 #282828 #ebdbb2 #928374   #928374
+client.unfocused        #928374 #282828 #ebdbb2 #928374   #928374
+client.urgent           #cc241d #282828 #ebdbb2 #928374   #cc241d
+client.placeholder      #928374 #282828 #ebdbb2 #928374   #928374
+client.background       #928374 #282828
+
+#borders stuff
+default_border pixel 1
+
+output * bg #1d2021 solid_color
+
+bar {
+    font "Iosevka Curly" 10
+    status_command i3status-rs
+    wrap_scroll yes
+    colors {
+        background #282828
+        focused_workspace #b8bb26 #32302f #b8bb26
+        active_workspace #928374 #282828 #ebdbb2
+        inactive_workspace #282828 #282828 #ebdbb2
+        urgent_workspace #cc241d #282828 #ebdbb2
+    }
+}
