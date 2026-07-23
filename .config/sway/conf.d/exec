@@ -3,6 +3,7 @@
 ##starting userspace software
 # exec_always sh -c ~/.config/sway/scripts/update-wallpaper.sh
 exec mkfifo /tmp/kitty
-exec wlsunset -s 19:00 -S 07:00 -d 1800
+exec wlsunset -s 19:00 -S 07:00 -d 2700
+exec foot --server
 # exec xbacklight -set 70
 # exec easyeffects --gapplication-service
