@@ -9,7 +9,7 @@ warning_fg = "#282828"
 
 [[block]]
 block = "focused_window"
-format = " < $title.str > |"
+format = " &lt; $title.str &gt; |"
 [[block.click]]
 button = "up"
 cmd = "swaymsg workspace prev_on_output"
