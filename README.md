@@ -4,18 +4,20 @@ Minimalist sway desktop with `gruvbox` color scheme, following the KISS philosop
 
 ## Features
 
-- Terminal centric, keyboard based navigation. Optional mouse support on `waybar`
-- Scripts for day to day operations: power management, and
-- Theme support: has `gruvbox` dark and light variant, fully themed, and toggleable via script
+- Terminal centric, keyboard based navigation
+- Some quality of life scripts
+- Gruvbox dark theme
 
 ## Screenshots
-
-![code](https://github.com/rywng/dotfiles/assets/72336775/2101a2b3-240f-4c18-9bd4-630c1d4c9036)
-![blank](https://github.com/rywng/dotfiles/assets/72336775/c8626d9b-2ea1-4576-946d-883fb5b3688f)
 
 <details>
 <summary>Old Screenshots</summary>
 <br>
+
+These are when I still used waybar.
+
+![code](https://github.com/rywng/dotfiles/assets/72336775/2101a2b3-240f-4c18-9bd4-630c1d4c9036)
+![blank](https://github.com/rywng/dotfiles/assets/72336775/c8626d9b-2ea1-4576-946d-883fb5b3688f)
 
 These are screenshots I took 2 years ago when I was using [serenade](https://github.com/rywng/dotfiles/commit/85e37a124be69b2c9366c6745204457c91cb8871) :)
 
@@ -38,26 +40,26 @@ yadm clone https://github.com/rywng/dotfiles
 
 This list may be out-dated, check `.config/` folder for more.
 
-| Name                                       | Description                         |
-| ------------------------------------------ | ----------------------------------- |
-| `gui-apps/fuzzel`                          | App launcher & `dmenu` alternative  |
-| `x11-terms/kitty`                          | Terminal emulator                   |
-| `media-video/mpv` + `mpv-plugin/mpv-mpris` | Video player                        |
-| `gui-wm/sway`                              | Stupid simple and stable Wayland WM |
-| `x11-misc/i3status-rust` + `swaybar`       | Bar                                 |
-| `app-text/zathura`                         | PDF viewer                          |
-| `app-shells/zsh`                           | Interactive Shell                   |
+| Name                                 | Description                         |
+| ------------------------------------ | ----------------------------------- |
+| `app-shells/zsh`                     | Interactive Shell                   |
+| `app-text/zathura`                   | PDF viewer                          |
+| `gui-apps/fuzzel`                    | App launcher & `dmenu` alternative  |
+| `gui-wm/sway`                        | Stupid simple and stable Wayland WM |
+| `media-video/mpv`                    | Video player                        |
+| `x11-misc/i3status-rust` + `swaybar` | Bar                                 |
+| `x11-terms/foot`                     | Terminal emulator                   |
 
 ## Dependencies
 
 | Name                          | Description                                         |
 | ----------------------------- | --------------------------------------------------- |
-| `sys-power/acpilight`         | CLI for managing backlight                          |
 | `gui-apps/qt6ct`              | To configure qt themes                              |
 | `gui-apps/swaybg`             | Set wallpaper for sway                              |
 | `gui-apps/swayidle`           | Auto suspend and lock                               |
 | `gui-apps/swaylock`           | Locking in sway                                     |
+| `gui-apps/wob`                | show screen backlight and audio output volume level |
 | `kde-frameworks/breeze-icons` | Icons for qt                                        |
 | `media-video/pipewire`        | Sound and screen sharing under Wayland              |
-| `gui-apps/wlsunset`           | Shift blue color based on time (Protects my eyes)   |
-| `gui-apps/wob`                | show screen backlight and audio output volume level |
+| `sys-power/acpilight`         | CLI for managing backlight                          |
+| `x11-themes/adwaita-qt`       | qt theme of choice. `breeze` has way too many deps. |
