@@ -29,6 +29,12 @@ format = " $combo.str(max_w:36) [$play] |"
 [[block.click]]
 button = "left"
 action = "play_pause"
+[[block.click]]
+button = "down"
+action = "none"
+[[block.click]]
+button = "up"
+action = "none"
 
 [[block]]
 block = "sound"
