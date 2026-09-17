@@ -25,7 +25,7 @@ name = "pipewire"
 [[block]]
 block = "music"
 seek_step_secs = 3
-format = " $combo.str(max_w:36) [$play] |"
+format = " $combo.str(max_w:36)[$play] |"
 [[block.click]]
 button = "left"
 action = "play_pause"
