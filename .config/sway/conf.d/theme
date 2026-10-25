@@ -28,11 +28,11 @@ exec_always {
 
 #set colour
 #color class            border  backgr. text    indicator child_border
-client.focused          #fbf1c7 #282828 #ebdbb2 #928374   #fbf1c7
-client.focused_inactive #928374 #282828 #ebdbb2 #928374   #928374
-client.unfocused        #928374 #282828 #ebdbb2 #928374   #928374
-client.urgent           #cc241d #282828 #ebdbb2 #928374   #cc241d
-client.placeholder      #928374 #282828 #ebdbb2 #928374   #928374
+client.focused          #fbf1c7 #282828 #ebdbb2 #6f8352   #fbf1c7
+client.focused_inactive #928374 #282828 #ebdbb2 #6f8352   #928374
+client.unfocused        #928374 #282828 #ebdbb2 #6f8352   #928374
+client.urgent           #cc241d #282828 #ebdbb2 #6f8352   #cc241d
+client.placeholder      #928374 #282828 #ebdbb2 #6f8352   #928374
 client.background       #928374 #282828
 
 #borders stuff
