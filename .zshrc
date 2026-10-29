@@ -44,6 +44,12 @@ if ! $(command -v direnv &> /dev/null) ; then
         direnv/direnv
 fi
 
+# broot setup
+broot_file=~/.config/broot/launcher/bash/br
+if [ -e $broot_file ]; then
+	source $broot_file
+fi
+
 # nix setup
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh;
