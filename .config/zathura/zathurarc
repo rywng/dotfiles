@@ -39,3 +39,4 @@ set recolor                     "false"
 # selection clipboard
 set selection-clipboard clipboard
 set page-thumbnail-size 16777216
+set page-cache-size	32
