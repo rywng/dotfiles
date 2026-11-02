@@ -59,7 +59,7 @@ bindsym $mod+n exec $term
 bindsym $mod+w kill
 # Start your launcher
 bindsym $mod+Ctrl+Return exec $menu
-bindsym $mod+Ctrl+e exec $menu
+bindsym $mod+Ctrl+n exec $menu
 
 floating_modifier $mod normal
 
@@ -109,7 +109,8 @@ bindsym $mod+Shift+9 move container to workspace number 9
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
 bindsym $mod+c split none
-bindsym $mod+v split toggle
+bindsym $mod+v split vertical
+bindsym $mod+b split horizontal
 # Switch the current container between different layout styles
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
